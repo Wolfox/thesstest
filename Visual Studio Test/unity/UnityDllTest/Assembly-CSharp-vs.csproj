@@ -46,46 +46,63 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Test.cs" />
-     <Compile Include="Assets\TestHndCtrl.cs" />
+     <Compile Include="Assets\Scripts\HandController.cs" />
+     <Compile Include="Assets\Scripts\Hands\FingerModel.cs" />
+     <Compile Include="Assets\Scripts\Hands\HandModel.cs" />
+     <Compile Include="Assets\Scripts\Hands\RigidFinger.cs" />
+     <Compile Include="Assets\Scripts\Hands\RigidHand.cs" />
+     <Compile Include="Assets\Scripts\Hands\SkeletalFinger.cs" />
+     <Compile Include="Assets\Scripts\Hands\SkeletalHand.cs" />
+     <Compile Include="Assets\Scripts\Test.cs" />
+     <Compile Include="Assets\Scripts\Utils\LeapUnityExtensions.cs" />
+     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
+     <Compile Include="Assets\Scripts1\FingerModel1.cs" />
+     <Compile Include="Assets\Scripts1\HandController1.cs" />
+     <Compile Include="Assets\Scripts1\HandModel1.cs" />
+     <Compile Include="Assets\Scripts1\Utils\LeapUnityExtensions1.cs" />
+     <None Include="Assets\Materials\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
+     <None Include="Assets\Shaders\RimShading.shader" />
+     <None Include="Assets\Materials\Sources\Shaders\Toony-BasicOutline.shader" />
+     <None Include="Assets\Materials\Sources\Shaders\Toony-LightedOutline.shader" />
+     <None Include="Assets\Materials\Sources\Shaders\Toony-Lighted.shader" />
      <None Include="Assets\Plugins\x86\donotdelete.txt" />
      <None Include="Assets\Plugins\SystemWipeRecognizerDll.bundle\Contents\MacOS\version.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="LeapCSharp.NET3.5">
- <HintPath>C:/Users/AntonioPinto/Desktop/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
  <Reference Include="LeapMotionFrameworkAdapter">
- <HintPath>C:/Users/AntonioPinto/Desktop/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/LeapMotionFrameworkAdapter.dll</HintPath>
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/LeapMotionFrameworkAdapter.dll</HintPath>
  </Reference>
  <Reference Include="MultimodalFramework">
- <HintPath>C:/Users/AntonioPinto/Desktop/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/MultimodalFramework.dll</HintPath>
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/MultimodalFramework.dll</HintPath>
  </Reference>
  <Reference Include="DLLTest">
- <HintPath>C:/Users/AntonioPinto/Desktop/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/DLLTest/DLLTest.dll</HintPath>
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/DLLTest/DLLTest.dll</HintPath>
  </Reference>
  <Reference Include="DLLTest3.5">
- <HintPath>C:/Users/AntonioPinto/Desktop/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/DLLTest/DLLTest3.5.dll</HintPath>
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/DLLTest/DLLTest3.5.dll</HintPath>
  </Reference>
  <Reference Include="System.ComponentModel.DataAnnotations">
- <HintPath>C:/Users/AntonioPinto/Desktop/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/System.ComponentModel.DataAnnotations.dll</HintPath>
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/System.ComponentModel.DataAnnotations.dll</HintPath>
  </Reference>
  <Reference Include="Accord">
- <HintPath>C:/Users/AntonioPinto/Desktop/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/Accord/Accord.dll</HintPath>
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/Accord/Accord.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Math">
- <HintPath>C:/Users/AntonioPinto/Desktop/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/Accord/Accord.Math.dll</HintPath>
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/Accord/Accord.Math.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Statistics">
- <HintPath>C:/Users/AntonioPinto/Desktop/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/Accord/Accord.Statistics.dll</HintPath>
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/Accord/Accord.Statistics.dll</HintPath>
  </Reference>
  <Reference Include="AForge">
- <HintPath>C:/Users/AntonioPinto/Desktop/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/AForge.NET/AForge.dll</HintPath>
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/AForge.NET/AForge.dll</HintPath>
  </Reference>
  <Reference Include="AForge.Math">
- <HintPath>C:/Users/AntonioPinto/Desktop/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/AForge.NET/AForge.Math.dll</HintPath>
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/AForge.NET/AForge.Math.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
