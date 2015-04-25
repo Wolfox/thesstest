@@ -1,0 +1,6 @@
+C:\Users\AntonioPinto\Desktop\HMM test\HMM_Test_Library\Sequence\bin\Debug\Sequences.dll
+C:\Users\AntonioPinto\Desktop\HMM test\HMM_Test_Library\Sequence\bin\Debug\Sequences.pdb
+C:\Users\AntonioPinto\Desktop\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.dll
+C:\Users\AntonioPinto\Desktop\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.pdb
+C:\Users\AntonioPinto\Desktop\HMM test\HMM_Test_Library\Sequence\bin\Debug\LeapCSharp.NET3.5.dll
+C:\Users\AntonioPinto\Desktop\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.csprojResolveAssemblyReference.cache
