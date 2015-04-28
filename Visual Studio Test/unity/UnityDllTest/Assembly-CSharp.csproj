@@ -56,10 +56,6 @@
      <Compile Include="Assets\Scripts\Test.cs" />
      <Compile Include="Assets\Scripts\Utils\LeapUnityExtensions.cs" />
      <Compile Include="Assets\Scripts\Utils\Utils.cs" />
-     <Compile Include="Assets\Scripts1\FingerModel1.cs" />
-     <Compile Include="Assets\Scripts1\HandController1.cs" />
-     <Compile Include="Assets\Scripts1\HandModel1.cs" />
-     <Compile Include="Assets\Scripts1\Utils\LeapUnityExtensions1.cs" />
      <None Include="Assets\Materials\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
      <None Include="Assets\Shaders\RimShading.shader" />
@@ -71,6 +67,9 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
+ <Reference Include="HMM_Test_Library">
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test_Library.dll</HintPath>
+ </Reference>
  <Reference Include="LeapCSharp.NET3.5">
  <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
@@ -79,6 +78,9 @@
  </Reference>
  <Reference Include="MultimodalFramework">
  <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/MultimodalFramework.dll</HintPath>
+ </Reference>
+ <Reference Include="Sequences">
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/Sequences.dll</HintPath>
  </Reference>
  <Reference Include="DLLTest">
  <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/DLLTest/DLLTest.dll</HintPath>

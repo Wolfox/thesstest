@@ -4,3 +4,17 @@ C:\Users\AntonioPinto\Desktop\HMM test\HMM_Test_Library\Sequence\obj\Debug\Seque
 C:\Users\AntonioPinto\Desktop\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.pdb
 C:\Users\AntonioPinto\Desktop\HMM test\HMM_Test_Library\Sequence\bin\Debug\LeapCSharp.NET3.5.dll
 C:\Users\AntonioPinto\Desktop\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.csprojResolveAssemblyReference.cache
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Sequences.dll
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Sequences.pdb
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.Statistics.dll
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.dll
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.Math.dll
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.Statistics.pdb
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.Statistics.xml
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.pdb
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.xml
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.Math.pdb
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.Math.xml
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.csprojResolveAssemblyReference.cache
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.dll
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.pdb

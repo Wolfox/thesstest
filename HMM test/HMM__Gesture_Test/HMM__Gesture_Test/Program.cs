@@ -41,8 +41,27 @@ namespace HMM__Gesture_Test
 
             MainChoice();
 
+            //HelpASDFG("Front.bin", "FrontModel.bin");
+
             Console.WriteLine("Press Enter to quit...");
             Console.ReadLine();
+        }
+
+        static void HelpASDFG(String readPath, string writePath)
+        {
+            /*Console.WriteLine("Loading");
+            Stream readStream = new FileStream(readPath, FileMode.Open, FileAccess.Read, FileShare.Read);
+            SequenceList seq = SequenceList.Load(readStream);
+            readStream.Close();
+
+            Model model = new Model(seq);
+            Console.WriteLine("Teaching");
+            model.Teach();
+
+            Console.WriteLine("Saving");
+            Stream writeStream = new FileStream(writePath, FileMode.Create, FileAccess.Write, FileShare.None);
+            model.Save(writeStream);
+            writeStream.Close();*/
         }
 
         static void MainChoice()
