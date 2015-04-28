@@ -4,146 +4,180 @@
         <name>Accord</name>
     </assembly>
     <members>
-        <member name="T:Accord.PositiveAttribute">
+        <member name="T:Accord.CancellationToken">
             <summary>
-              Specifies that an argument, in a method or function,
-              must be greater than zero.
+              Minimum CancellationToken implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
             </summary>
             
         </member>
-        <member name="M:Accord.PositiveAttribute.#ctor">
+        <member name="P:Accord.CancellationToken.CanBeCancelled">
             <summary>
-              Initializes a new instance of the <see cref="T:Accord.PositiveAttribute"/> class.
+              Gets or sets a value indicating whether this instance can be cancelled.
             </summary>
             
         </member>
-        <member name="T:Accord.NegativeAttribute">
+        <member name="P:Accord.CancellationToken.IsCancellationRequested">
             <summary>
-              Specifies that an argument, in a method or function,
-              must be lesser than zero.
+              Gets or sets a value indicating whether cancellation has been requested.
             </summary>
             
         </member>
-        <member name="M:Accord.NegativeAttribute.#ctor">
+        <member name="P:Accord.CancellationToken.None">
             <summary>
-              Initializes a new instance of the <see cref="T:Accord.NegativeAttribute"/> class.
+              Gets an empty token.
             </summary>
             
         </member>
-        <member name="T:Accord.NonpositiveAttribute">
+        <member name="T:System.Collections.Generic.ISet`1">
             <summary>
-              Specifies that an argument, in a method or function,
-              must be lesser than or equal to zero.
+              Minimum ISet implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
             </summary>
             
         </member>
-        <member name="M:Accord.NonpositiveAttribute.#ctor">
+        <member name="M:System.Collections.Generic.ISet`1.#ctor">
             <summary>
-              Initializes a new instance of the <see cref="T:Accord.NonpositiveAttribute"/> class.
+              Initializes a new instance of the <see cref="T:System.Collections.Generic.ISet`1"/> class.
             </summary>
             
         </member>
-        <member name="T:Accord.NonnegativeAttribute">
+        <member name="M:System.Collections.Generic.ISet`1.#ctor(System.Collections.Generic.HashSet{`0})">
             <summary>
-              Specifies that an argument, in a method or function,
-              must be greater than or equal to zero.
+            Initializes a new instance of the <see cref="T:System.Collections.Generic.ISet`1"/> class.
+            </summary>
+            
+            <param name="set">The set.</param>
+            
+        </member>
+        <member name="M:System.Collections.Generic.ISet`1.op_Implicit(System.Collections.Generic.HashSet{`0})~System.Collections.Generic.ISet{`0}">
+            <summary>
+              Performs an implicit conversion from <see cref="T:System.Collections.Generic.HashSet`1"/> to <see cref="T:System.Collections.Generic.ISet`1"/>.
+            </summary>
+            
+            <param name="set">The set.</param>
+            
+            <returns>
+              The result of the conversion.
+            </returns>
+            
+        </member>
+        <member name="M:System.Collections.Generic.ISet`1.op_Implicit(System.Collections.Generic.ISet{`0})~System.Collections.Generic.HashSet{`0}">
+            <summary>
+              Performs an implicit conversion from <see cref="T:System.Collections.Generic.ISet`1"/> to <see cref="T:System.Collections.Generic.HashSet`1"/>.
+            </summary>
+            
+            <param name="set">The set.</param>
+            
+            <returns>
+              The result of the conversion.
+            </returns>
+            
+        </member>
+        <member name="M:System.Collections.Generic.ISet`1.Add(`0)">
+            <summary>
+              Adds the specified item.
+            </summary>
+            
+            <param name="item">The item.</param>
+            
+        </member>
+        <member name="M:System.Collections.Generic.ISet`1.Clear">
+            <summary>
+              Clears this instance.
             </summary>
             
         </member>
-        <member name="M:Accord.NonnegativeAttribute.#ctor">
+        <member name="M:System.Collections.Generic.ISet`1.Contains(`0)">
             <summary>
-              Initializes a new instance of the <see cref="T:Accord.NonnegativeAttribute"/> class.
+              Determines whether this instance contains the specified item.
+            </summary>
+            
+            <param name="item">The item.</param>
+            
+            <returns>
+              <c>true</c> if the set contains the specified item; otherwise, <c>false</c>.
+            </returns>
+            
+        </member>
+        <member name="M:System.Collections.Generic.ISet`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the elements of this set to an array.
+            </summary>
+            
+            <param name="array">The array.</param>
+            <param name="arrayIndex">Index of the array.</param>
+            
+        </member>
+        <member name="M:System.Collections.Generic.ISet`1.Remove(`0)">
+            <summary>
+              Removes the specified item.
+            </summary>
+            
+            <param name="item">The item.</param>
+            
+        </member>
+        <member name="M:System.Collections.Generic.ISet`1.GetEnumerator">
+            <summary>
+              Returns an enumerator that iterates through a collection.
+            </summary>
+            
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            
+        </member>
+        <member name="M:System.Collections.Generic.ISet`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+              Returns an enumerator that iterates through a collection.
+            </summary>
+            
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            
+        </member>
+        <member name="M:System.Collections.Generic.ISet`1.SetEquals(System.Collections.Generic.ISet{`0})">
+            <summary>
+              Determines whether this set contains the 
+              exact same elements as another set.
+            </summary>
+            
+            <param name="set">The other set.</param>
+            
+        </member>
+        <member name="P:System.Collections.Generic.ISet`1.Count">
+            <summary>
+              Gets the number of elements in this set.
             </summary>
             
         </member>
-        <member name="T:Accord.RealAttribute">
+        <member name="P:System.Collections.Generic.ISet`1.IsReadOnly">
             <summary>
-              Specifies that an argument, in a method or function,
-              must be real (double).
+              Gets a value indicating whether this instance is read only.
+            </summary>
+            
+            <value>
+            	<c>true</c> if this instance is read only; otherwise, <c>false</c>.
+            </value>
+            
+        </member>
+        <member name="T:System.Collections.Generic.IReadOnlyCollection`1">
+            <summary>
+              Minimum IReadOnlyCollection implementation for .NET 4.0 to
+              make Accord.NET work. This is not a complete implementation.
             </summary>
             
         </member>
-        <member name="M:Accord.RealAttribute.#ctor">
+        <member name="P:System.Collections.Generic.IReadOnlyCollection`1.Item(System.Int32)">
             <summary>
-              Initializes a new instance of the <see cref="T:Accord.RealAttribute"/> class.
+              Gets the item at the specified index.
             </summary>
             
         </member>
-        <member name="T:Accord.UnitAttribute">
+        <member name="P:System.Collections.Generic.IReadOnlyCollection`1.Count">
             <summary>
-              Specifies that an argument, in a method or function,
-              must be real between 0 and 1.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.UnitAttribute.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.UnitAttribute"/> class.
-            </summary>
-            
-        </member>
-        <member name="T:Accord.PositiveIntegerAttribute">
-            <summary>
-              Specifies that an argument, in a method or function,
-              must be an integer bigger than zero.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.PositiveIntegerAttribute.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.PositiveIntegerAttribute"/> class.
-            </summary>
-            
-        </member>
-        <member name="T:Accord.NegativeIntegerAttribute">
-            <summary>
-              Specifies that an argument, in a method or function,
-              must be an integer less than zero.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.NegativeIntegerAttribute.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.NegativeIntegerAttribute"/> class.
-            </summary>
-            
-        </member>
-        <member name="T:Accord.NonpositiveIntegerAttribute">
-            <summary>
-              Specifies that an argument, in a method or function,
-              must be an integer smaller than or equal to zero.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.NonpositiveIntegerAttribute.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.NonpositiveIntegerAttribute"/> class.
-            </summary>
-            
-        </member>
-        <member name="T:Accord.NonnegativeIntegerAttribute">
-            <summary>
-              Specifies that an argument, in a method or function,
-              must be an integer bigger than or equal to zero.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.NonnegativeIntegerAttribute.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.NonnegativeIntegerAttribute"/> class.
-            </summary>
-            
-        </member>
-        <member name="T:Accord.IntegerAttribute">
-            <summary>
-              Specifies that an argument, in a method or function,
-              must be an integer.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.IntegerAttribute.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.IntegerAttribute"/> class.
+              Gets the number of elements in the collection.
             </summary>
             
         </member>
@@ -629,6 +663,99 @@
               in the tree; <c>false</c> otherwise.</param>
             
         </member>
+        <member name="T:Accord.NonPositiveDefiniteMatrixException">
+            <summary>
+              Non-Positive Definite Matrix Exception.
+            </summary>
+            
+            <remarks><para>The non-positive definite matrix exception is thrown in cases where a method 
+            expects a matrix to have only positive eigenvalues, such when dealing with covariance matrices.</para>
+            </remarks>
+            
+        </member>
+        <member name="M:Accord.NonPositiveDefiniteMatrixException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.NonPositiveDefiniteMatrixException"/> class.
+            </summary>
+        </member>
+        <member name="M:Accord.NonPositiveDefiniteMatrixException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.NonPositiveDefiniteMatrixException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            
+        </member>
+        <member name="M:Accord.NonPositiveDefiniteMatrixException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.NonPositiveDefiniteMatrixException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+            
+        </member>
+        <member name="M:Accord.NonPositiveDefiniteMatrixException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.NonPositiveDefiniteMatrixException"/> class.
+            </summary>
+            
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null.
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+            </exception>
+            
+        </member>
+        <member name="T:Accord.Lazy`1">
+            <summary>
+              Minimum Lazy implementation for .NET 3.5 to make
+              Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Lazy`1.#ctor(System.Func{`0})">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.Lazy`1"/> class.
+            </summary>
+            
+            <param name="valueFactory">A function which creates the instance value on first access.</param>
+            
+        </member>
+        <member name="M:Accord.Lazy`1.#ctor(System.Func{`0},System.Boolean)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.Lazy`1"/> class.
+            </summary>
+            
+            <param name="valueFactory">A function which creates the instance value on first access.</param>
+            <param name="isThreadSafe">Needs to be true.</param>
+            
+        </member>
+        <member name="M:Accord.Lazy`1.ToString">
+            <summary>
+              Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            
+            <returns>
+              A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+            
+        </member>
+        <member name="P:Accord.Lazy`1.Value">
+            <summary>
+              Gets the lazily initialized value for this instance.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.Lazy`1.IsValueCreated">
+            <summary>
+              Gets a value that indicates whether a value has been created for this Lazy{T} instance.
+            </summary>
+            
+        </member>
         <member name="T:Accord.Collections.KeyValuePairComparer`2">
             <summary>
               Vanilla key-based comparer for <see cref="T:System.Collections.Generic.KeyValuePair`2"/>.
@@ -679,29 +806,61 @@
             </summary>
             
         </member>
-        <member name="T:Accord.CancellationToken">
-            <summary>
-              Minimum CancellationToken implementation for .NET 3.5 to
-              make Accord.NET work. This is not a complete implementation.
-            </summary>
+        <member name="T:Accord.DimensionMismatchException">
+             <summary>
+               Dimension Mismatch Exception.
+             </summary>
+            
+             <remarks><para>The dimension mismatch exception is thrown in cases where a method expects 
+             a matrix or array object having specific or compatible dimensions, such as the inner matrix
+             dimensions in matrix multiplication.</para>
+             </remarks>
             
         </member>
-        <member name="P:Accord.CancellationToken.CanBeCancelled">
+        <member name="M:Accord.DimensionMismatchException.#ctor">
             <summary>
-              Gets or sets a value indicating whether this instance can be cancelled.
+            Initializes a new instance of the <see cref="T:Accord.DimensionMismatchException"/> class.
+            </summary>
+        </member>
+        <member name="M:Accord.DimensionMismatchException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.DimensionMismatchException"/> class.
             </summary>
             
-        </member>
-        <member name="P:Accord.CancellationToken.IsCancellationRequested">
-            <summary>
-              Gets or sets a value indicating whether cancellation has been requested.
-            </summary>
+            <param name="paramName">The name of the parameter that caused the current exception.</param>
             
         </member>
-        <member name="P:Accord.CancellationToken.None">
+        <member name="M:Accord.DimensionMismatchException.#ctor(System.String,System.String)">
             <summary>
-              Gets an empty token.
+            Initializes a new instance of the <see cref="T:Accord.DimensionMismatchException"/> class.
             </summary>
+            
+            <param name="paramName">The name of the parameter that caused the current exception.</param>
+            <param name="message">Message providing some additional information.</param>
+            
+        </member>
+        <member name="M:Accord.DimensionMismatchException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.DimensionMismatchException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+            
+        </member>
+        <member name="M:Accord.DimensionMismatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.DimensionMismatchException"/> class.
+            </summary>
+            
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null.
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+            </exception>
             
         </member>
         <member name="T:System.AggregateException">
@@ -751,287 +910,322 @@
             </exception>
             
         </member>
-        <member name="T:System.Collections.Generic.IReadOnlyCollection`1">
+        <member name="T:Accord.Collections.ReadOnlyDictionary`2">
             <summary>
-              Minimum IReadOnlyCollection implementation for .NET 4.0 to
-              make Accord.NET work. This is not a complete implementation.
+              Read-only dictionary wrapper.
+            </summary>
+            
+            <remarks>
+              This collection implements a read-only dictionary. Read-only collections
+              can not be changed once they are created and are useful for presenting
+              information to the user without allowing alteration.
+            </remarks>
+            
+            <typeparam name="TKey">The types of the keys in the dictionary.</typeparam>
+            <typeparam name="TValue">The type of values in the dictionary.</typeparam>
+            
+        </member>
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})">
+            <summary>
+              Constructs a new read-only wrapper around a <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.
+            </summary>
+            
+            <param name="dictionary">The dictionary to wrap.</param>
+            
+        </member>
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Add(`0,`1)">
+            <summary>
+              Does nothing, as this collection is read-only.
             </summary>
             
         </member>
-        <member name="P:System.Collections.Generic.IReadOnlyCollection`1.Item(System.Int32)">
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.ContainsKey(`0)">
             <summary>
-              Gets the item at the specified index.
+              Determines whether the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>
+              contains an element with the specified key.
             </summary>
             
-        </member>
-        <member name="P:System.Collections.Generic.IReadOnlyCollection`1.Count">
-            <summary>
-              Gets the number of elements in the collection.
-            </summary>
-            
-        </member>
-        <member name="T:System.Collections.Generic.ISet`1">
-            <summary>
-              Minimum ISet implementation for .NET 3.5 to
-              make Accord.NET work. This is not a complete implementation.
-            </summary>
-            
-        </member>
-        <member name="M:System.Collections.Generic.ISet`1.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:System.Collections.Generic.ISet`1"/> class.
-            </summary>
-            
-        </member>
-        <member name="M:System.Collections.Generic.ISet`1.#ctor(System.Collections.Generic.HashSet{`0})">
-            <summary>
-            Initializes a new instance of the <see cref="T:System.Collections.Generic.ISet`1"/> class.
-            </summary>
-            
-            <param name="set">The set.</param>
-            
-        </member>
-        <member name="M:System.Collections.Generic.ISet`1.op_Implicit(System.Collections.Generic.HashSet{`0})~System.Collections.Generic.ISet{`0}">
-            <summary>
-              Performs an implicit conversion from <see cref="T:System.Collections.Generic.HashSet`1"/> to <see cref="T:System.Collections.Generic.ISet`1"/>.
-            </summary>
-            
-            <param name="set">The set.</param>
+            <param name="key">The key to locate in the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.</param>
             
             <returns>
-              The result of the conversion.
+               <c>true</c> if the <see cref="T:System.Collections.Generic.IDictionary`2"/> contains
+                an element with the key; otherwise, false.
             </returns>
             
         </member>
-        <member name="M:System.Collections.Generic.ISet`1.op_Implicit(System.Collections.Generic.ISet{`0})~System.Collections.Generic.HashSet{`0}">
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Remove(`0)">
             <summary>
-              Performs an implicit conversion from <see cref="T:System.Collections.Generic.ISet`1"/> to <see cref="T:System.Collections.Generic.HashSet`1"/>.
+              Does nothing, as this collection is read-only.
             </summary>
             
-            <param name="set">The set.</param>
+        </member>
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.TryGetValue(`0,`1@)">
+            <summary>
+               Gets the value associated with the specified key.
+            </summary>
+            
+            <param name="key">The key whose value to get.</param>
+            
+            <param name="value">
+               When this method returns, the value associated with the specified key, if
+               the key is found; otherwise, the default value for the type of the value
+               parameter. This parameter is passed uninitialized.</param>
+               
+            <returns>
+                true if the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>
+                contains an element with the specified key; otherwise, false.</returns>
+                
+        </member>
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Add(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary>
+              Does nothing, as this collection is read-only.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Clear">
+            <summary>
+              Does nothing, as this collection is read-only.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary>
+              Determines whether the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>
+              contains an element with the specified key.
+            </summary>
+            
+            <param name="item">The key to locate in the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.</param>
             
             <returns>
-              The result of the conversion.
+              <c>true</c> if the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>
+              contains an element with the key; otherwise, false.
             </returns>
             
         </member>
-        <member name="M:System.Collections.Generic.ISet`1.Add(`0)">
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.CopyTo(System.Collections.Generic.KeyValuePair{`0,`1}[],System.Int32)">
             <summary>
-              Adds the specified item.
+              Copies the entire <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/> to a 
+              compatible one-dimensional Array, starting at the specified index of 
+              the target array.
             </summary>
             
-            <param name="item">The item.</param>
+            <param name="array">
+              The one-dimensional Array that is the destination
+              of the elements copied from <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>. The 
+              Array must have zero-based indexing.</param>
+            
+            <param name="arrayIndex">
+              The zero-based index in array at which copying begins. </param>
             
         </member>
-        <member name="M:System.Collections.Generic.ISet`1.Clear">
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
             <summary>
-              Clears this instance.
+              Does nothing, as this collection is read-only.
             </summary>
             
         </member>
-        <member name="M:System.Collections.Generic.ISet`1.Contains(`0)">
-            <summary>
-              Determines whether this instance contains the specified item.
-            </summary>
-            
-            <param name="item">The item.</param>
-            
-            <returns>
-              <c>true</c> if the set contains the specified item; otherwise, <c>false</c>.
-            </returns>
-            
-        </member>
-        <member name="M:System.Collections.Generic.ISet`1.CopyTo(`0[],System.Int32)">
-            <summary>
-            Copies the elements of this set to an array.
-            </summary>
-            
-            <param name="array">The array.</param>
-            <param name="arrayIndex">Index of the array.</param>
-            
-        </member>
-        <member name="M:System.Collections.Generic.ISet`1.Remove(`0)">
-            <summary>
-              Removes the specified item.
-            </summary>
-            
-            <param name="item">The item.</param>
-            
-        </member>
-        <member name="M:System.Collections.Generic.ISet`1.GetEnumerator">
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.GetEnumerator">
             <summary>
               Returns an enumerator that iterates through a collection.
             </summary>
             
             <returns>
-            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+              An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
             </returns>
             
         </member>
-        <member name="M:System.Collections.Generic.ISet`1.System#Collections#IEnumerable#GetEnumerator">
+        <member name="M:Accord.Collections.ReadOnlyDictionary`2.System#Collections#IEnumerable#GetEnumerator">
             <summary>
               Returns an enumerator that iterates through a collection.
             </summary>
             
             <returns>
-            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+              An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
             </returns>
             
         </member>
-        <member name="M:System.Collections.Generic.ISet`1.SetEquals(System.Collections.Generic.ISet{`0})">
+        <member name="P:Accord.Collections.ReadOnlyDictionary`2.Keys">
             <summary>
-              Determines whether this set contains the 
-              exact same elements as another set.
+              Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the keys of
+              the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.
             </summary>
             
-            <param name="set">The other set.</param>
+            <value>The keys.</value>
             
         </member>
-        <member name="P:System.Collections.Generic.ISet`1.Count">
+        <member name="P:Accord.Collections.ReadOnlyDictionary`2.Values">
             <summary>
-              Gets the number of elements in this set.
-            </summary>
-            
-        </member>
-        <member name="P:System.Collections.Generic.ISet`1.IsReadOnly">
-            <summary>
-              Gets a value indicating whether this instance is read only.
+             Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the values in
+             the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.
             </summary>
             
             <value>
-            	<c>true</c> if this instance is read only; otherwise, <c>false</c>.
-            </value>
+              An <see cref="T:System.Collections.Generic.ICollection`1"/> containing the
+              values in the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.
+             </value>
+             
+        </member>
+        <member name="P:Accord.Collections.ReadOnlyDictionary`2.Item(`0)">
+            <summary>
+              Gets the element with the specified key. Set is not supported.
+            </summary>
+            
+            <value>The element with the specified key.</value>
             
         </member>
-        <member name="T:Accord.Lazy`1">
+        <member name="P:Accord.Collections.ReadOnlyDictionary`2.Count">
             <summary>
-              Minimum Lazy implementation for .NET 3.5 to make
-              Accord.NET work. This is not a complete implementation.
+              Gets the number of elements contained in this
+              <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.
             </summary>
             
         </member>
-        <member name="M:Accord.Lazy`1.#ctor(System.Func{`0})">
+        <member name="P:Accord.Collections.ReadOnlyDictionary`2.IsReadOnly">
             <summary>
-              Initializes a new instance of the <see cref="T:Accord.Lazy`1"/> class.
-            </summary>
-            
-            <param name="valueFactory">A function which creates the instance value on first access.</param>
-            
-        </member>
-        <member name="M:Accord.Lazy`1.#ctor(System.Func{`0},System.Boolean)">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.Lazy`1"/> class.
-            </summary>
-            
-            <param name="valueFactory">A function which creates the instance value on first access.</param>
-            <param name="isThreadSafe">Needs to be true.</param>
-            
-        </member>
-        <member name="M:Accord.Lazy`1.ToString">
-            <summary>
-              Returns a <see cref="T:System.String"/> that represents this instance.
-            </summary>
-            
-            <returns>
-              A <see cref="T:System.String"/> that represents this instance.
-            </returns>
-            
-        </member>
-        <member name="P:Accord.Lazy`1.Value">
-            <summary>
-              Gets the lazily initialized value for this instance.
+              Always returns true.
             </summary>
             
         </member>
-        <member name="P:Accord.Lazy`1.IsValueCreated">
+        <member name="T:Accord.PositiveAttribute">
             <summary>
-              Gets a value that indicates whether a value has been created for this Lazy{T} instance.
+              Specifies that an argument, in a method or function,
+              must be greater than zero.
             </summary>
             
         </member>
-        <member name="T:System.Threading.Tasks.Parallel">
+        <member name="M:Accord.PositiveAttribute.#ctor">
             <summary>
-              Minimum Parallel Tasks implementation for .NET 3.5 to make
-              Accord.NET work. This is nowhere a functional implementation
-              and exists only to provide compile-time compatibility with
-              previous framework versions.
+              Initializes a new instance of the <see cref="T:Accord.PositiveAttribute"/> class.
             </summary>
             
         </member>
-        <member name="M:System.Threading.Tasks.Parallel.For(System.Int32,System.Int32,System.Threading.Tasks.Parallel.ForLoopBody)">
+        <member name="T:Accord.NegativeAttribute">
             <summary>
-              Parallel for mock-up. The provided
-              code will NOT be run in parallel.
+              Specifies that an argument, in a method or function,
+              must be lesser than zero.
             </summary>
             
         </member>
-        <member name="T:System.Threading.Tasks.Parallel.ForLoopBody">
+        <member name="M:Accord.NegativeAttribute.#ctor">
             <summary>
-              Loop body delegate.
+              Initializes a new instance of the <see cref="T:Accord.NegativeAttribute"/> class.
             </summary>
             
         </member>
-        <member name="T:System.Collections.Generic.SortedSet`1">
+        <member name="T:Accord.NonpositiveAttribute">
             <summary>
-              Minimum SortedSet implementation for .NET 3.5 to
-              make Accord.NET work. This is not a complete implementation.
+              Specifies that an argument, in a method or function,
+              must be lesser than or equal to zero.
             </summary>
             
         </member>
-        <member name="M:System.Collections.Generic.SortedSet`1.#ctor">
+        <member name="M:Accord.NonpositiveAttribute.#ctor">
             <summary>
-              Initializes a new instance of the <see cref="T:System.Collections.Generic.SortedSet`1"/> class.
+              Initializes a new instance of the <see cref="T:Accord.NonpositiveAttribute"/> class.
             </summary>
             
         </member>
-        <member name="M:System.Collections.Generic.SortedSet`1.Contains(`0)">
+        <member name="T:Accord.NonnegativeAttribute">
             <summary>
-              Determines whether the set contains the specified value.
-            </summary>
-            
-            <param name="value">The value.</param>
-            
-            <returns>
-              <c>true</c> if this object contains the specified value; otherwise, <c>false</c>.
-            </returns>
-            
-        </member>
-        <member name="M:System.Collections.Generic.SortedSet`1.Add(`0)">
-            <summary>
-              Adds the specified value.
-            </summary>
-            
-            <param name="value">The value.</param>
-            
-        </member>
-        <member name="M:System.Collections.Generic.SortedSet`1.GetEnumerator">
-            <summary>
-              Gets the enumerator.
+              Specifies that an argument, in a method or function,
+              must be greater than or equal to zero.
             </summary>
             
         </member>
-        <member name="T:Accord.SpinLock">
+        <member name="M:Accord.NonnegativeAttribute.#ctor">
             <summary>
-              Minimum SpinLock implementation for .NET 3.5 to make
-              Accord.NET work. This is not a complete implementation.
+              Initializes a new instance of the <see cref="T:Accord.NonnegativeAttribute"/> class.
             </summary>
             
         </member>
-        <member name="M:Accord.SpinLock.Enter(System.Boolean@)">
+        <member name="T:Accord.RealAttribute">
             <summary>
-              Acquires the lock.
+              Specifies that an argument, in a method or function,
+              must be real (double).
             </summary>
             
         </member>
-        <member name="M:Accord.SpinLock.Exit">
+        <member name="M:Accord.RealAttribute.#ctor">
             <summary>
-              Releases the lock.
+              Initializes a new instance of the <see cref="T:Accord.RealAttribute"/> class.
             </summary>
             
         </member>
-        <member name="P:Accord.SpinLock.IsHeld">
+        <member name="T:Accord.UnitAttribute">
             <summary>
-              Gets whether the lock is currently held by any thread.
+              Specifies that an argument, in a method or function,
+              must be real between 0 and 1.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.UnitAttribute.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.UnitAttribute"/> class.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.PositiveIntegerAttribute">
+            <summary>
+              Specifies that an argument, in a method or function,
+              must be an integer bigger than zero.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.PositiveIntegerAttribute.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.PositiveIntegerAttribute"/> class.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.NegativeIntegerAttribute">
+            <summary>
+              Specifies that an argument, in a method or function,
+              must be an integer less than zero.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.NegativeIntegerAttribute.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.NegativeIntegerAttribute"/> class.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.NonpositiveIntegerAttribute">
+            <summary>
+              Specifies that an argument, in a method or function,
+              must be an integer smaller than or equal to zero.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.NonpositiveIntegerAttribute.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.NonpositiveIntegerAttribute"/> class.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.NonnegativeIntegerAttribute">
+            <summary>
+              Specifies that an argument, in a method or function,
+              must be an integer bigger than or equal to zero.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.NonnegativeIntegerAttribute.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.NonnegativeIntegerAttribute"/> class.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.IntegerAttribute">
+            <summary>
+              Specifies that an argument, in a method or function,
+              must be an integer.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.IntegerAttribute.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.IntegerAttribute"/> class.
             </summary>
             
         </member>
@@ -1201,212 +1395,43 @@
             </summary>
             
         </member>
-        <member name="T:Accord.ExtensionMethods">
+        <member name="T:System.Collections.Generic.SortedSet`1">
             <summary>
-              Static class for utility extension methods.
+              Minimum SortedSet implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
             </summary>
             
         </member>
-        <member name="M:Accord.ExtensionMethods.Add(System.Data.DataColumnCollection,System.String[])">
+        <member name="M:System.Collections.Generic.SortedSet`1.#ctor">
             <summary>
-              Creates and adds multiple <see cref="T:System.Data.DataColumn"/>
-              objects with the given names at once.
-            </summary>
-            
-            <param name="collection">The <see cref="T:System.Data.DataColumnCollection"/>
-            to add in.</param>
-            <param name="columnNames">The names of the <see cref="T:System.Data.DataColumn"/> to
-            be created and added.</param>
-            
-            <example>
-              <code>
-              DataTable table = new DataTable();
-              
-              // Add multiple columns at once:
-              table.Columns.Add("columnName1", "columnName2");
-              </code>
-            </example>
-            
-        </member>
-        <member name="M:Accord.ExtensionMethods.GetDescription``1(``0)">
-            <summary>
-              Gets a the value of a <see cref="T:System.ComponentModel.DescriptionAttribute"/>
-              associated with a particular enumeration value.
-            </summary>
-            
-            <typeparam name="T">The enumeration type.</typeparam>
-            <param name="source">The enumeration value.</param>
-            
-            <returns>The string value stored in the value's description attribute.</returns>
-            
-        </member>
-        <member name="M:Accord.ExtensionMethods.Read``1(System.IO.BinaryReader,``0@)">
-            <summary>
-              Reads a <c>struct</c> from a stream.
+              Initializes a new instance of the <see cref="T:System.Collections.Generic.SortedSet`1"/> class.
             </summary>
             
         </member>
-        <member name="M:Accord.ExtensionMethods.GetPosition(System.IO.StreamReader)">
+        <member name="M:System.Collections.Generic.SortedSet`1.Contains(`0)">
             <summary>
-              Gets the underlying buffer position for a StreamReader.
+              Determines whether the set contains the specified value.
             </summary>
             
-            <param name="reader">A StreamReader whose position will be retrieved.</param>
+            <param name="value">The value.</param>
             
-            <returns>The current offset from the beginning of the 
-              file that the StreamReader is currently located into.</returns>
+            <returns>
+              <c>true</c> if this object contains the specified value; otherwise, <c>false</c>.
+            </returns>
             
         </member>
-        <member name="T:Accord.ConvergenceException">
+        <member name="M:System.Collections.Generic.SortedSet`1.Add(`0)">
             <summary>
-              Algorithm Convergence Exception.
+              Adds the specified value.
             </summary>
             
-            <remarks><para>The algorithm convergence exception is thrown in cases where a iterative
-            algorithm could not converge to a finite solution.</para>
-            </remarks>
+            <param name="value">The value.</param>
             
         </member>
-        <member name="M:Accord.ConvergenceException.#ctor">
+        <member name="M:System.Collections.Generic.SortedSet`1.GetEnumerator">
             <summary>
-              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
+              Gets the enumerator.
             </summary>
-            
-        </member>
-        <member name="M:Accord.ConvergenceException.#ctor(System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
-            </summary>
-            
-            <param name="message">Message providing some additional information.</param>
-            
-        </member>
-        <member name="M:Accord.ConvergenceException.#ctor(System.String,System.Exception)">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
-            </summary>
-            
-            <param name="message">Message providing some additional information.</param>
-            <param name="innerException">The exception that is the cause of the current exception.</param>
-            
-        </member>
-        <member name="M:Accord.ConvergenceException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
-            </summary>
-            
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-            <exception cref="T:System.ArgumentNullException">
-            The <paramref name="info"/> parameter is null.
-            </exception>
-            <exception cref="T:System.Runtime.Serialization.SerializationException">
-            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
-            </exception>
-            
-        </member>
-        <member name="T:Accord.DimensionMismatchException">
-             <summary>
-               Dimension Mismatch Exception.
-             </summary>
-            
-             <remarks><para>The dimension mismatch exception is thrown in cases where a method expects 
-             a matrix or array object having specific or compatible dimensions, such as the inner matrix
-             dimensions in matrix multiplication.</para>
-             </remarks>
-            
-        </member>
-        <member name="M:Accord.DimensionMismatchException.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.DimensionMismatchException"/> class.
-            </summary>
-        </member>
-        <member name="M:Accord.DimensionMismatchException.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.DimensionMismatchException"/> class.
-            </summary>
-            
-            <param name="paramName">The name of the parameter that caused the current exception.</param>
-            
-        </member>
-        <member name="M:Accord.DimensionMismatchException.#ctor(System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.DimensionMismatchException"/> class.
-            </summary>
-            
-            <param name="paramName">The name of the parameter that caused the current exception.</param>
-            <param name="message">Message providing some additional information.</param>
-            
-        </member>
-        <member name="M:Accord.DimensionMismatchException.#ctor(System.String,System.Exception)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.DimensionMismatchException"/> class.
-            </summary>
-            
-            <param name="message">Message providing some additional information.</param>
-            <param name="innerException">The exception that is the cause of the current exception.</param>
-            
-        </member>
-        <member name="M:Accord.DimensionMismatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.DimensionMismatchException"/> class.
-            </summary>
-            
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-            <exception cref="T:System.ArgumentNullException">
-            The <paramref name="info"/> parameter is null.
-            </exception>
-            <exception cref="T:System.Runtime.Serialization.SerializationException">
-            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
-            </exception>
-            
-        </member>
-        <member name="T:Accord.NonPositiveDefiniteMatrixException">
-            <summary>
-              Non-Positive Definite Matrix Exception.
-            </summary>
-            
-            <remarks><para>The non-positive definite matrix exception is thrown in cases where a method 
-            expects a matrix to have only positive eigenvalues, such when dealing with covariance matrices.</para>
-            </remarks>
-            
-        </member>
-        <member name="M:Accord.NonPositiveDefiniteMatrixException.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.NonPositiveDefiniteMatrixException"/> class.
-            </summary>
-        </member>
-        <member name="M:Accord.NonPositiveDefiniteMatrixException.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.NonPositiveDefiniteMatrixException"/> class.
-            </summary>
-            
-            <param name="message">Message providing some additional information.</param>
-            
-        </member>
-        <member name="M:Accord.NonPositiveDefiniteMatrixException.#ctor(System.String,System.Exception)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.NonPositiveDefiniteMatrixException"/> class.
-            </summary>
-            
-            <param name="message">Message providing some additional information.</param>
-            <param name="innerException">The exception that is the cause of the current exception.</param>
-            
-        </member>
-        <member name="M:Accord.NonPositiveDefiniteMatrixException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.NonPositiveDefiniteMatrixException"/> class.
-            </summary>
-            
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-            <exception cref="T:System.ArgumentNullException">
-            The <paramref name="info"/> parameter is null.
-            </exception>
-            <exception cref="T:System.Runtime.Serialization.SerializationException">
-            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
-            </exception>
             
         </member>
         <member name="T:Accord.NonSymmetricMatrixException">
@@ -1444,53 +1469,6 @@
         <member name="M:Accord.NonSymmetricMatrixException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
             Initializes a new instance of the <see cref="T:Accord.NonSymmetricMatrixException"/> class.
-            </summary>
-            
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-            <exception cref="T:System.ArgumentNullException">
-            The <paramref name="info"/> parameter is null.
-            </exception>
-            <exception cref="T:System.Runtime.Serialization.SerializationException">
-            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
-            </exception>
-            
-        </member>
-        <member name="T:Accord.SingularMatrixException">
-            <summary>
-              Singular Matrix Exception.
-            </summary>
-            
-            <remarks><para>The singular matrix exception is thrown in cases where a method which
-            performs matrix inversions has encountered a non-invertible matrix during the process.</para>
-            </remarks>
-            
-        </member>
-        <member name="M:Accord.SingularMatrixException.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.SingularMatrixException"/> class.
-            </summary>
-        </member>
-        <member name="M:Accord.SingularMatrixException.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.SingularMatrixException"/> class.
-            </summary>
-            
-            <param name="message">Message providing some additional information.</param>
-            
-        </member>
-        <member name="M:Accord.SingularMatrixException.#ctor(System.String,System.Exception)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.SingularMatrixException"/> class.
-            </summary>
-            
-            <param name="message">Message providing some additional information.</param>
-            <param name="innerException">The exception that is the cause of the current exception.</param>
-            
-        </member>
-        <member name="M:Accord.SingularMatrixException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Accord.SingularMatrixException"/> class.
             </summary>
             
             <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
@@ -1688,179 +1666,173 @@
             </summary>
             
         </member>
-        <member name="T:Accord.Collections.ReadOnlyDictionary`2">
+        <member name="T:Accord.SpinLock">
             <summary>
-              Read-only dictionary wrapper.
+              Minimum SpinLock implementation for .NET 3.5 to make
+              Accord.NET work. This is not a complete implementation.
             </summary>
             
-            <remarks>
-              This collection implements a read-only dictionary. Read-only collections
-              can not be changed once they are created and are useful for presenting
-              information to the user without allowing alteration.
+        </member>
+        <member name="M:Accord.SpinLock.Enter(System.Boolean@)">
+            <summary>
+              Acquires the lock.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.SpinLock.Exit">
+            <summary>
+              Releases the lock.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.SpinLock.IsHeld">
+            <summary>
+              Gets whether the lock is currently held by any thread.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.ConvergenceException">
+            <summary>
+              Algorithm Convergence Exception.
+            </summary>
+            
+            <remarks><para>The algorithm convergence exception is thrown in cases where a iterative
+            algorithm could not converge to a finite solution.</para>
             </remarks>
             
-            <typeparam name="TKey">The types of the keys in the dictionary.</typeparam>
-            <typeparam name="TValue">The type of values in the dictionary.</typeparam>
-            
         </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})">
+        <member name="M:Accord.ConvergenceException.#ctor">
             <summary>
-              Constructs a new read-only wrapper around a <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.
-            </summary>
-            
-            <param name="dictionary">The dictionary to wrap.</param>
-            
-        </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Add(`0,`1)">
-            <summary>
-              Does nothing, as this collection is read-only.
+              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
             </summary>
             
         </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.ContainsKey(`0)">
+        <member name="M:Accord.ConvergenceException.#ctor(System.String)">
             <summary>
-              Determines whether the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>
-              contains an element with the specified key.
+              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
             </summary>
             
-            <param name="key">The key to locate in the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.</param>
-            
-            <returns>
-               <c>true</c> if the <see cref="T:System.Collections.Generic.IDictionary`2"/> contains
-                an element with the key; otherwise, false.
-            </returns>
+            <param name="message">Message providing some additional information.</param>
             
         </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Remove(`0)">
+        <member name="M:Accord.ConvergenceException.#ctor(System.String,System.Exception)">
             <summary>
-              Does nothing, as this collection is read-only.
+              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
             </summary>
             
+            <param name="message">Message providing some additional information.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+            
         </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.TryGetValue(`0,`1@)">
+        <member name="M:Accord.ConvergenceException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-               Gets the value associated with the specified key.
+              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
             </summary>
             
-            <param name="key">The key whose value to get.</param>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null.
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+            </exception>
             
-            <param name="value">
-               When this method returns, the value associated with the specified key, if
-               the key is found; otherwise, the default value for the type of the value
-               parameter. This parameter is passed uninitialized.</param>
-               
-            <returns>
-                true if the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>
-                contains an element with the specified key; otherwise, false.</returns>
-                
         </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Add(System.Collections.Generic.KeyValuePair{`0,`1})">
+        <member name="T:Accord.Collections.RedBlackTreeNodeType">
             <summary>
-              Does nothing, as this collection is read-only.
+              Possible node colors for <see cref="T:Accord.Collections.RedBlackTree`1"/>s.
             </summary>
             
         </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Clear">
+        <member name="F:Accord.Collections.RedBlackTreeNodeType.Red">
             <summary>
-              Does nothing, as this collection is read-only.
+              Red node.
             </summary>
             
         </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
+        <member name="F:Accord.Collections.RedBlackTreeNodeType.Black">
             <summary>
-              Determines whether the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>
-              contains an element with the specified key.
-            </summary>
-            
-            <param name="item">The key to locate in the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.</param>
-            
-            <returns>
-              <c>true</c> if the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>
-              contains an element with the key; otherwise, false.
-            </returns>
-            
-        </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.CopyTo(System.Collections.Generic.KeyValuePair{`0,`1}[],System.Int32)">
-            <summary>
-              Copies the entire <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/> to a 
-              compatible one-dimensional Array, starting at the specified index of 
-              the target array.
-            </summary>
-            
-            <param name="array">
-              The one-dimensional Array that is the destination
-              of the elements copied from <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>. The 
-              Array must have zero-based indexing.</param>
-            
-            <param name="arrayIndex">
-              The zero-based index in array at which copying begins. </param>
-            
-        </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
-            <summary>
-              Does nothing, as this collection is read-only.
+              Black node.
             </summary>
             
         </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.GetEnumerator">
+        <member name="T:Accord.Collections.RedBlackTreeNode`1">
             <summary>
-              Returns an enumerator that iterates through a collection.
+              <see cref="T:Accord.Collections.RedBlackTree`1"/> node.
             </summary>
             
-            <returns>
-              An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
-            </returns>
+            <typeparam name="T">The type of the value to be stored.</typeparam>
             
         </member>
-        <member name="M:Accord.Collections.ReadOnlyDictionary`2.System#Collections#IEnumerable#GetEnumerator">
+        <member name="M:Accord.Collections.RedBlackTreeNode`1.#ctor">
             <summary>
-              Returns an enumerator that iterates through a collection.
-            </summary>
-            
-            <returns>
-              An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
-            </returns>
-            
-        </member>
-        <member name="P:Accord.Collections.ReadOnlyDictionary`2.Keys">
-            <summary>
-              Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the keys of
-              the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.
-            </summary>
-            
-            <value>The keys.</value>
-            
-        </member>
-        <member name="P:Accord.Collections.ReadOnlyDictionary`2.Values">
-            <summary>
-             Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the values in
-             the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.
-            </summary>
-            
-            <value>
-              An <see cref="T:System.Collections.Generic.ICollection`1"/> containing the
-              values in the <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.
-             </value>
-             
-        </member>
-        <member name="P:Accord.Collections.ReadOnlyDictionary`2.Item(`0)">
-            <summary>
-              Gets the element with the specified key. Set is not supported.
-            </summary>
-            
-            <value>The element with the specified key.</value>
-            
-        </member>
-        <member name="P:Accord.Collections.ReadOnlyDictionary`2.Count">
-            <summary>
-              Gets the number of elements contained in this
-              <see cref="T:Accord.Collections.ReadOnlyDictionary`2"/>.
+              Constructs a new empty node.
             </summary>
             
         </member>
-        <member name="P:Accord.Collections.ReadOnlyDictionary`2.IsReadOnly">
+        <member name="M:Accord.Collections.RedBlackTreeNode`1.#ctor(`0)">
             <summary>
-              Always returns true.
+              Constructs a node containing the given <param name="value"/>.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.Collections.RedBlackTreeNode`1.Parent">
+            <summary>
+              Gets or sets a reference to this node's parent node.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.Collections.RedBlackTreeNode`1.Right">
+            <summary>
+              Gets or sets a reference to this node's right child.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.Collections.RedBlackTreeNode`1.Left">
+            <summary>
+              Gets or sets a reference to this node's left child.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.Collections.RedBlackTreeNode`1.Color">
+            <summary>
+              Gets or sets this node's color.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.Collections.RedBlackTreeNode`1.Value">
+            <summary>
+              Gets or sets the value associated with this node.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.Collections.RedBlackTreeNode`2">
+            <summary>
+              <see cref="T:Accord.Collections.RedBlackTree`1"/> node.
+            </summary>
+            
+            <typeparam name="TKey">The type of the key that identifies the value.</typeparam>
+            <typeparam name="TValue">The type of the values stored in this node.</typeparam>
+            
+        </member>
+        <member name="M:Accord.Collections.RedBlackTreeNode`2.#ctor">
+            <summary>
+              Constructs a new empty node.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Collections.RedBlackTreeNode`2.#ctor(`0,`1)">
+            <summary>
+              Constructs a new node containing the given <param name="key">
+              key</param> and <param name="value">value</param> pair.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Collections.RedBlackTreeNode`2.#ctor(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary>
+              Constructs a new node containing the given
+              <param name="item">key and value pair</param>.
             </summary>
             
         </member>
@@ -2137,100 +2109,128 @@
             </value>
             
         </member>
-        <member name="T:Accord.Collections.RedBlackTreeNodeType">
+        <member name="T:Accord.ExtensionMethods">
             <summary>
-              Possible node colors for <see cref="T:Accord.Collections.RedBlackTree`1"/>s.
+              Static class for utility extension methods.
             </summary>
             
         </member>
-        <member name="F:Accord.Collections.RedBlackTreeNodeType.Red">
+        <member name="M:Accord.ExtensionMethods.Add(System.Data.DataColumnCollection,System.String[])">
             <summary>
-              Red node.
+              Creates and adds multiple <see cref="T:System.Data.DataColumn"/>
+              objects with the given names at once.
+            </summary>
+            
+            <param name="collection">The <see cref="T:System.Data.DataColumnCollection"/>
+            to add in.</param>
+            <param name="columnNames">The names of the <see cref="T:System.Data.DataColumn"/> to
+            be created and added.</param>
+            
+            <example>
+              <code>
+              DataTable table = new DataTable();
+              
+              // Add multiple columns at once:
+              table.Columns.Add("columnName1", "columnName2");
+              </code>
+            </example>
+            
+        </member>
+        <member name="M:Accord.ExtensionMethods.GetDescription``1(``0)">
+            <summary>
+              Gets a the value of a <see cref="T:System.ComponentModel.DescriptionAttribute"/>
+              associated with a particular enumeration value.
+            </summary>
+            
+            <typeparam name="T">The enumeration type.</typeparam>
+            <param name="source">The enumeration value.</param>
+            
+            <returns>The string value stored in the value's description attribute.</returns>
+            
+        </member>
+        <member name="M:Accord.ExtensionMethods.Read``1(System.IO.BinaryReader,``0@)">
+            <summary>
+              Reads a <c>struct</c> from a stream.
             </summary>
             
         </member>
-        <member name="F:Accord.Collections.RedBlackTreeNodeType.Black">
+        <member name="M:Accord.ExtensionMethods.GetPosition(System.IO.StreamReader)">
             <summary>
-              Black node.
+              Gets the underlying buffer position for a StreamReader.
+            </summary>
+            
+            <param name="reader">A StreamReader whose position will be retrieved.</param>
+            
+            <returns>The current offset from the beginning of the 
+              file that the StreamReader is currently located into.</returns>
+            
+        </member>
+        <member name="T:Accord.SingularMatrixException">
+            <summary>
+              Singular Matrix Exception.
+            </summary>
+            
+            <remarks><para>The singular matrix exception is thrown in cases where a method which
+            performs matrix inversions has encountered a non-invertible matrix during the process.</para>
+            </remarks>
+            
+        </member>
+        <member name="M:Accord.SingularMatrixException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.SingularMatrixException"/> class.
+            </summary>
+        </member>
+        <member name="M:Accord.SingularMatrixException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.SingularMatrixException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            
+        </member>
+        <member name="M:Accord.SingularMatrixException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.SingularMatrixException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+            
+        </member>
+        <member name="M:Accord.SingularMatrixException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.SingularMatrixException"/> class.
+            </summary>
+            
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null.
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+            </exception>
+            
+        </member>
+        <member name="T:System.Threading.Tasks.Parallel">
+            <summary>
+              Minimum Parallel Tasks implementation for .NET 3.5 to make
+              Accord.NET work. This is nowhere a functional implementation
+              and exists only to provide compile-time compatibility with
+              previous framework versions.
             </summary>
             
         </member>
-        <member name="T:Accord.Collections.RedBlackTreeNode`1">
+        <member name="M:System.Threading.Tasks.Parallel.For(System.Int32,System.Int32,System.Threading.Tasks.Parallel.ForLoopBody)">
             <summary>
-              <see cref="T:Accord.Collections.RedBlackTree`1"/> node.
-            </summary>
-            
-            <typeparam name="T">The type of the value to be stored.</typeparam>
-            
-        </member>
-        <member name="M:Accord.Collections.RedBlackTreeNode`1.#ctor">
-            <summary>
-              Constructs a new empty node.
+              Parallel for mock-up. The provided
+              code will NOT be run in parallel.
             </summary>
             
         </member>
-        <member name="M:Accord.Collections.RedBlackTreeNode`1.#ctor(`0)">
+        <member name="T:System.Threading.Tasks.Parallel.ForLoopBody">
             <summary>
-              Constructs a node containing the given <param name="value"/>.
-            </summary>
-            
-        </member>
-        <member name="P:Accord.Collections.RedBlackTreeNode`1.Parent">
-            <summary>
-              Gets or sets a reference to this node's parent node.
-            </summary>
-            
-        </member>
-        <member name="P:Accord.Collections.RedBlackTreeNode`1.Right">
-            <summary>
-              Gets or sets a reference to this node's right child.
-            </summary>
-            
-        </member>
-        <member name="P:Accord.Collections.RedBlackTreeNode`1.Left">
-            <summary>
-              Gets or sets a reference to this node's left child.
-            </summary>
-            
-        </member>
-        <member name="P:Accord.Collections.RedBlackTreeNode`1.Color">
-            <summary>
-              Gets or sets this node's color.
-            </summary>
-            
-        </member>
-        <member name="P:Accord.Collections.RedBlackTreeNode`1.Value">
-            <summary>
-              Gets or sets the value associated with this node.
-            </summary>
-            
-        </member>
-        <member name="T:Accord.Collections.RedBlackTreeNode`2">
-            <summary>
-              <see cref="T:Accord.Collections.RedBlackTree`1"/> node.
-            </summary>
-            
-            <typeparam name="TKey">The type of the key that identifies the value.</typeparam>
-            <typeparam name="TValue">The type of the values stored in this node.</typeparam>
-            
-        </member>
-        <member name="M:Accord.Collections.RedBlackTreeNode`2.#ctor">
-            <summary>
-              Constructs a new empty node.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.Collections.RedBlackTreeNode`2.#ctor(`0,`1)">
-            <summary>
-              Constructs a new node containing the given <param name="key">
-              key</param> and <param name="value">value</param> pair.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.Collections.RedBlackTreeNode`2.#ctor(System.Collections.Generic.KeyValuePair{`0,`1})">
-            <summary>
-              Constructs a new node containing the given
-              <param name="item">key and value pair</param>.
+              Loop body delegate.
             </summary>
             
         </member>

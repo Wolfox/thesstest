@@ -33,3 +33,10 @@ C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Ge
 C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\Accord.Math.xml
 C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\Accord.Statistics.pdb
 C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\Accord.Statistics.xml
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\Accord.MachineLearning.dll
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\AForge.dll
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\AForge.Math.dll
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\Accord.MachineLearning.pdb
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\Accord.MachineLearning.xml
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\AForge.xml
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\AForge.Math.xml
