@@ -12,14 +12,16 @@ namespace HMM__Gesture_Test
         //private Gesture
 
         private int numOfFramesPerSeq;
-        private List<byte[]> sequence;
+        private List<Frame> sequence;
         private Gesture1 parent;
+        private bool isAuto;
 
-        public void Initialization(int num, Gesture1 p)
+        public void Initialization(int num, Gesture1 p, bool auto)
         {
             numOfFramesPerSeq = num;
             parent = p;
-            sequence = new List<byte[]>();
+            sequence = new List<Frame>();
+            isAuto = auto;
         }
 
         public override void OnConnect(Controller controller)
@@ -37,12 +39,18 @@ namespace HMM__Gesture_Test
             if (!hand.IsValid) { return; }
             if (hands.Count > 1) { Console.WriteLine("MORE THAN 1 HAND"); return; }
 
-            sequence.Add(frame.Serialize);
-            if (sequence.Count >= numOfFramesPerSeq)
+            sequence.Add(frame);
+            if (sequence.Count >= numOfFramesPerSeq && isAuto)
             {
                 parent.Store(sequence);
-                sequence = new List<byte[]>();
+                sequence = new List<Frame>();
             }
+        }
+
+        public void GetSequence()
+        {
+            parent.Store(sequence);
+            sequence = new List<Frame>();
         }
     }
 }

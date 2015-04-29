@@ -19,7 +19,7 @@ namespace HMM__Gesture_Test
         int numOfReads;
         int numOfFramesPerRead;
         bool isAuto;
-        List<List<byte[]>> sequenceToRead;
+        List<List<Frame>> sequencesToRead;
         public GestureState state;
 
         private int actualNumOfReads;
@@ -29,7 +29,7 @@ namespace HMM__Gesture_Test
             numOfReads = numReads;
             numOfFramesPerRead = numFramesRead;
             isAuto = auto;
-            sequenceToRead = new List<List<byte[]>>();
+            sequencesToRead = new List<List<Frame>>();
             state = GestureState.Starting;
             actualNumOfReads = 0;
 
@@ -37,24 +37,38 @@ namespace HMM__Gesture_Test
 
         public void Read(string path)
         {
-
             ReadListener listener = new ReadListener();
-            listener.Initialization(numOfFramesPerRead, this);
+            listener.Initialization(numOfFramesPerRead, this, isAuto);
             Controller controller = new Controller();
             controller.AddListener(listener);
 
             actualNumOfReads = 0;
+            Console.WriteLine("Press enter to start reading frames to file " + path);
+            Console.ReadLine();
+            Console.WriteLine("num: " + actualNumOfReads);
             state = GestureState.Reading;
-            while (state == GestureState.Reading) { }
+            while (state == GestureState.Reading) {
+                if (!isAuto)
+                {
+                    Console.ReadLine();
+                    Console.WriteLine("Reading...");
+                    Console.ReadLine();
+                    listener.GetSequence();
+                }
+            }
 
-            Save(path);
 
+            Utils.SaveListListFrame(sequencesToRead, path);
+
+            controller.RemoveListener(listener);
+            controller.Dispose();
         }
 
-        public void Store(List<byte[]> handSeq)
+        public void Store(List<Frame> handSeq)
         {
-            sequenceToRead.Add(handSeq);
+            sequencesToRead.Add(handSeq);
             actualNumOfReads++;
+            Console.WriteLine("num: " + actualNumOfReads);
             if (actualNumOfReads >= numOfReads)
             {
                 state = GestureState.Saving;
@@ -65,7 +79,7 @@ namespace HMM__Gesture_Test
         {
             Stream writeStream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
             IFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(writeStream, sequenceToRead);
+            formatter.Serialize(writeStream, sequencesToRead);
             writeStream.Close();
         }
     }

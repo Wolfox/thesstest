@@ -9,10 +9,12 @@ using Accord.Statistics.Models.Markov;
 //using HMM_Test_Library;
 using LeapMotionFrameworkAdapter;
 using Sequences;
-using HMM_Test_Library;
 using Leap;
 using System.Collections.Generic;
 using System.IO;
+using Accord.Statistics.Models.Markov.Learning;
+using Accord.Statistics.Models.Markov.Topology;
+using HMM_Test_Library;
 
 public class Test : MonoBehaviour {
 
@@ -25,53 +27,55 @@ public class Test : MonoBehaviour {
 		sample = new Sample(100);
 	}
 
+	HiddenMarkovModel<MultivariateNormalDistribution> HelpLoad(string path) {
+		return HiddenMarkovModel<MultivariateNormalDistribution>.Load(path);
+	}
+
+	static void HelpASDFG(string readPath, string writePath)
+	{
+		Stream readStream = new FileStream(readPath, FileMode.Open, FileAccess.Read, FileShare.Read);
+		SequenceList seq = SequenceList.Load(readStream);
+		readStream.Close();
+		
+		HiddenMarkovModel<MultivariateNormalDistribution> hmm = new HiddenMarkovModel<MultivariateNormalDistribution>(new Forward(5),
+		                                                                                                              new MultivariateNormalDistribution(seq.GetArray()[0][0].Length));
+
+		var teacher = new BaumWelchLearning<MultivariateNormalDistribution>(hmm);
+            teacher.Run(seq.GetArray());
+		hmm.Save(writePath);
+	}
+	
 	void Start () {
+
+		/*HelpASDFG("Front.bin", "FrontModel.bin");
+		HelpASDFG("Back.bin", "BackModel.bin");
+		HelpASDFG("Left.bin", "LeftModel.bin");
+		HelpASDFG("Right.bin", "RightModel.bin");*/
+		
 		List<HiddenMarkovModel<MultivariateNormalDistribution>> models = new List<HiddenMarkovModel<MultivariateNormalDistribution>>();
 
-		Stream readStream = new FileStream("Front.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-		SequenceList seqF = SequenceList.Load(readStream);
-		Model modelF = new Model(seqF);
+		HiddenMarkovModel<MultivariateNormalDistribution> modelF = HelpLoad("FrontModel.bin");
+		HiddenMarkovModel<MultivariateNormalDistribution> modelR = HelpLoad("RightModel.bin");
+		HiddenMarkovModel<MultivariateNormalDistribution> modelL = HelpLoad("LeftModel.bin");
+		HiddenMarkovModel<MultivariateNormalDistribution> modelB = HelpLoad("BackModel.bin");
+
+		/*Stream readStream = new FileStream("Front.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+		SequenceList seq = SequenceList.Load(readStream);
 		readStream.Close();
 
-		readStream = new FileStream("Left.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-		SequenceList seqL = SequenceList.Load(readStream);
-		Model modelL = new Model(seqL);
-		readStream.Close();
+		Debug.Log("Teach");
+		var teacher = new BaumWelchLearning<MultivariateNormalDistribution>(modelF);
+		teacher.Run(seq.GetArray());
 
-		readStream = new FileStream("Right.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-		SequenceList seqR = SequenceList.Load(readStream);
-		Model modelR = new Model(seqR);
-		readStream.Close();
+		Debug.Log("Saving");
+		modelF.Save("testFront.bin");
 
-		readStream = new FileStream("Back.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-		SequenceList seqB = SequenceList.Load(readStream);
-		Model modelB = new Model(seqB);
-		readStream.Close();
-
-		modelF.Teach();
-		Stream writeStream = new FileStream("FrontModel.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-		modelF.Save(writeStream);
-		writeStream.Close();
-
-		modelL.Teach();
-		writeStream = new FileStream("LeftModel.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-		modelL.Save(writeStream);
-		writeStream.Close();
-
-		modelR.Teach();
-		writeStream = new FileStream("RightModel.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-		modelR.Save(writeStream);
-		writeStream.Close();
-
-		modelB.Teach();
-		writeStream = new FileStream("BackModel.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-		modelB.Save(writeStream);
-		writeStream.Close();
-
-		models.Add (modelF.getModel());
-		models.Add (modelL.getModel());
-		models.Add (modelR.getModel());
-		models.Add (modelB.getModel());
+		HiddenMarkovModel<MultivariateNormalDistribution> modelFT = HelpLoad("testFront.bin");*/
+		
+		models.Add (modelF);
+		models.Add (modelL);
+		models.Add (modelR);
+		models.Add (modelB);
 
 		classifier = new Classifier(models);
 	}

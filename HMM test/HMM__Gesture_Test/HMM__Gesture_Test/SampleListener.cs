@@ -12,6 +12,8 @@ namespace HMM__Gesture_Test
     {
         private Object thisLock = new Object();
         private Sequence s = new Sequence();
+        private List<Frame> frameList = new List<Frame>();
+        public List<List<Frame>> frameListList = new List<List<Frame>>();
 
         private void SafeWriteLine(String line)
         {
@@ -27,8 +29,19 @@ namespace HMM__Gesture_Test
         }
 
 
+        public void HelpRecordFrame(Frame frame) {
+            frameList.Add(frame);
+            if (frameList.Count >= 10)
+            {
+                frameListList.Add(frameList);
+                frameList = new List<Frame>();
+            }
+        }
+
         public override void OnFrame(Controller controller)
         {
+            HelpRecordFrame(controller.Frame());
+            return;
             Frame frame = controller.Frame ();
             HandList hands = frame.Hands;
             Hand hand = hands.Rightmost;

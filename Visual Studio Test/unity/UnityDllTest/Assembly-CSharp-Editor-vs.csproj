@@ -85,6 +85,9 @@
  <Reference Include="Accord">
  <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/Accord/Accord.dll</HintPath>
  </Reference>
+ <Reference Include="Accord.MachineLearning">
+ <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/Accord/Accord.MachineLearning.dll</HintPath>
+ </Reference>
  <Reference Include="Accord.Math">
  <HintPath>C:/Users/AntonioPinto/Desktop/Tests/thesstest/Visual Studio Test/unity/UnityDllTest/Assets/Plugins/HMM_Test/Accord/Accord.Math.dll</HintPath>
  </Reference>

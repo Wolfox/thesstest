@@ -18,6 +18,11 @@ namespace Sequences
         HiddenMarkovModel<MultivariateNormalDistribution> hmm;
         public SequenceList inputSeq;
 
+        public Model()
+        {
+            inputSeq = new SequenceList();
+        }
+
         public Model(SequenceList inp)
         {
             inputSeq = inp;
@@ -51,43 +56,4 @@ namespace Sequences
 
     }
 
-
-    public class Classifier
-    {
-        HiddenMarkovClassifier<MultivariateNormalDistribution> classifer;
-        List<HiddenMarkovModel<MultivariateNormalDistribution>> models;
-
-        public Classifier() 
-        {
-            models = new List<HiddenMarkovModel<MultivariateNormalDistribution>>();
-            classifer = new HiddenMarkovClassifier<MultivariateNormalDistribution>(models.ToArray());
-        }
-
-        public Classifier(List<HiddenMarkovModel<MultivariateNormalDistribution>> mods)
-        {
-            models = mods;
-            classifer = new HiddenMarkovClassifier<MultivariateNormalDistribution>(models.ToArray());
-        }
-
-        public void AddModel(HiddenMarkovModel<MultivariateNormalDistribution> m) {
-            models.Add(m);
-            RecreateClassifier();
-        }
-
-        public void ClearClassifier()
-        {
-            models.Clear();
-            RecreateClassifier();
-        }
-
-        public int Run(double[][] sequence)
-        {
-            return classifer.Compute(sequence);
-        }
-
-        private void RecreateClassifier()
-        {
-            classifer = new HiddenMarkovClassifier<MultivariateNormalDistribution>(models.ToArray());
-        }
-    }
 }

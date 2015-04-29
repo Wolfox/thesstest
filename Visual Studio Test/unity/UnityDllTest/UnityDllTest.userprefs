@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Test.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\CharacterControllerScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\HandController.cs" Line="273" Column="18" />
-      <File FileName="Assets\Scripts\Test.cs" Line="4" Column="39" />
+      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\CharacterControllerScript.cs" Line="120" Column="11" />
+      <File FileName="Assets\Scripts\Test.cs" Line="90" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
