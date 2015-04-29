@@ -47,7 +47,9 @@ public class Test : MonoBehaviour {
 	
 	void Start () {
 
-		/*HelpASDFG("Front.bin", "FrontModel.bin");
+		/*HelpASDFG("data/Close.bin", "CloseModel.bin");
+		HelpASDFG("data/Open.bin", "OpenModel.bin");
+		HelpASDFG("Front.bin", "FrontModel.bin");
 		HelpASDFG("Back.bin", "BackModel.bin");
 		HelpASDFG("Left.bin", "LeftModel.bin");
 		HelpASDFG("Right.bin", "RightModel.bin");*/
@@ -58,6 +60,8 @@ public class Test : MonoBehaviour {
 		HiddenMarkovModel<MultivariateNormalDistribution> modelR = HelpLoad("RightModel.bin");
 		HiddenMarkovModel<MultivariateNormalDistribution> modelL = HelpLoad("LeftModel.bin");
 		HiddenMarkovModel<MultivariateNormalDistribution> modelB = HelpLoad("BackModel.bin");
+		HiddenMarkovModel<MultivariateNormalDistribution> modelO = HelpLoad("OpenModel.bin");
+		HiddenMarkovModel<MultivariateNormalDistribution> modelC = HelpLoad("CloseModel.bin");
 
 		/*Stream readStream = new FileStream("Front.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
 		SequenceList seq = SequenceList.Load(readStream);
@@ -73,9 +77,11 @@ public class Test : MonoBehaviour {
 		HiddenMarkovModel<MultivariateNormalDistribution> modelFT = HelpLoad("testFront.bin");*/
 		
 		models.Add (modelF);
-		models.Add (modelL);
 		models.Add (modelR);
+		models.Add (modelL);
 		models.Add (modelB);
+		models.Add (modelO);
+		models.Add (modelC);
 
 		classifier = new Classifier(models);
 	}

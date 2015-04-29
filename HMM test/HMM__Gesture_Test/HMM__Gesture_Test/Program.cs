@@ -42,10 +42,17 @@ namespace HMM__Gesture_Test
             samples.Save(writeStream);
             writeStream.Close();*/
 
-            /*List<List<Frame>> lf5 = Utils.LoadListListFrame("Frames/Open.bin");
-            Console.WriteLine(lf5.Count);*/
+            List<List<Frame>> listFrame = Utils.LoadListListFrame("Frames/Right.bin");
+            SequenceList seqList = Utils.FramesToSequenceList(listFrame);
+            Utils.SaveSequenceList(seqList, "Right.bin");
 
-            MainChoice();
+            //MainChoice();
+
+            /*List<List<Frame>> frames = Utils.LoadListListFrame("Frames/Close.bin");
+            SequenceList seqlist = Utils.FramesToSequenceList(frames);
+            Stream writeStream = new FileStream("Close.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            seqlist.Save(writeStream);
+            writeStream.Close();*/
 
             /*List<List<Frame>> frames = Utils.LoadListListFrame("Frames/Open.bin");
             SequenceList seq = Utils.FramesToSequenceList(frames);
@@ -102,12 +109,12 @@ namespace HMM__Gesture_Test
             int a = int.Parse(Console.ReadLine());
             switch (a) {
                 case 1:
-                    Read("CloseR0.bin", 100, 10, true);
-                    Read("CloseR1.bin", 100, 10, true);
-                    Read("CloseR2.bin", 100, 10, true);
-                    Read("CloseL0.bin", 100, 10, true);
-                    Read("CloseL1.bin", 100, 10, true);
-                    Read("CloseL2.bin", 100, 10, true);
+                    Read("BackR0.bin", 100, 10, true);
+                    Read("BackR1.bin", 100, 10, true);
+                    Read("BackR2.bin", 100, 10, true);
+                    Read("BackL0.bin", 100, 10, true);
+                    Read("BackL1.bin", 100, 10, true);
+                    Read("BackL2.bin", 100, 10, true);
                     break;
                 case 2:
                     Load();
@@ -135,19 +142,19 @@ namespace HMM__Gesture_Test
         {
             Console.WriteLine("LOAD");
             List<List<Frame>> endList = new List<List<Frame>>();
-            List<List<Frame>> lf0 = Utils.LoadListListFrame("Frames/CloseR0.bin");
-            List<List<Frame>> lf1 = Utils.LoadListListFrame("Frames/CloseR1.bin");
-            List<List<Frame>> lf2 = Utils.LoadListListFrame("Frames/CloseR2.bin");
-            List<List<Frame>> lf3 = Utils.LoadListListFrame("Frames/CloseL0.bin");
-            List<List<Frame>> lf4 = Utils.LoadListListFrame("Frames/CloseL1.bin");
-            List<List<Frame>> lf5 = Utils.LoadListListFrame("Frames/CloseL2.bin");
+            List<List<Frame>> lf0 = Utils.LoadListListFrame("Frames/BackR0.bin");
+            List<List<Frame>> lf1 = Utils.LoadListListFrame("Frames/BackR1.bin");
+            List<List<Frame>> lf2 = Utils.LoadListListFrame("Frames/BackR2.bin");
+            List<List<Frame>> lf3 = Utils.LoadListListFrame("Frames/BackL0.bin");
+            List<List<Frame>> lf4 = Utils.LoadListListFrame("Frames/BackL1.bin");
+            List<List<Frame>> lf5 = Utils.LoadListListFrame("Frames/BackL2.bin");
             endList = Utils.JoinListListFrame(lf0, lf1);
             endList = Utils.JoinListListFrame(endList, lf2);
             endList = Utils.JoinListListFrame(endList, lf3);
             endList = Utils.JoinListListFrame(endList, lf4);
             endList = Utils.JoinListListFrame(endList, lf5);
 
-            Utils.SaveListListFrame(endList, "Frames/Close.bin");
+            Utils.SaveListListFrame(endList, "Frames/Back.bin");
         }
 
         static void Test()

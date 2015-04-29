@@ -159,5 +159,20 @@ namespace Sequences
         {
             return HiddenMarkovModel<MultivariateNormalDistribution>.Load(path);
         }
+
+        public static void SaveSequenceList(SequenceList seqList, string path)
+        {
+            Stream writeStream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
+            seqList.Save(writeStream);
+            writeStream.Close();
+        }
+
+        public static SequenceList LoadSequenceList(string path)
+        {
+            Stream readStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+            SequenceList seqList = SequenceList.Load(readStream);
+            readStream.Close();
+            return seqList;
+        }
     }
 }
