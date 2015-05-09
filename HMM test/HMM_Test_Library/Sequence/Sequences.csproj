@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classifier.cs" />
+    <Compile Include="CulturalLayer.cs" />
     <Compile Include="FrameToSign.cs" />
     <Compile Include="HandSequence.cs" />
     <Compile Include="Model.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Sample.cs" />
     <Compile Include="Sequence.cs" />
     <Compile Include="Sign.cs" />
+    <Compile Include="State.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

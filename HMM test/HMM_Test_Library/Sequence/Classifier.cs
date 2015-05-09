@@ -19,6 +19,11 @@ namespace Sequences
             names = new List<string>();
         }
 
+        public Classifier(List<HiddenMarkovModel<MultivariateNormalDistribution>> models, List<string> names) {
+            this.models = models;
+            this.names = names;
+        }
+
         public void AddModel(HiddenMarkovModel<MultivariateNormalDistribution> model, string name)
         {
             models.Add(model);
