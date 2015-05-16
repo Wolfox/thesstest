@@ -7,9 +7,8 @@ using System.Text;
 
 namespace Sequences {
 
-    public abstract class State
+    public class State
     {
-
         private string stateName { get; set; }
         private List<string> actions;
 
@@ -25,42 +24,17 @@ namespace Sequences {
         public List<string> GetActions() {
             return actions;
         }
-    }
 
-    public abstract class OldState {
-
-        private string stateName;
-        private Dictionary<string, HiddenMarkovModel<MultivariateNormalDistribution>> models;
-
-        public OldState(string name)
-        {
-            stateName = name;
-            models = new Dictionary<string, HiddenMarkovModel<MultivariateNormalDistribution>>();
+        public List<HiddenMarkovModel<MultivariateNormalDistribution>> GetModelsWithCulture(
+            Dictionary<string, HiddenMarkovModel<MultivariateNormalDistribution>> allModels,
+            CulturalLayer cultureLayer, string culture = ""){
+                return GetModels(cultureLayer.GetGesturesNames(actions, culture), allModels);
         }
 
-        public void AddHMMToState(string name, HiddenMarkovModel<MultivariateNormalDistribution> hmm) {
-            models.Add(name, hmm);
-        }
-
-        public Classifier CreateClassifier() {
-            Classifier classifier = new Classifier();
-            foreach (KeyValuePair<string, HiddenMarkovModel<MultivariateNormalDistribution>> entry in models)
-            {
-                classifier.AddModel(entry.Value, entry.Key);
-            }
-            return classifier;
-        }
-
-        public bool HaveModel(string modelName) {
-            return models.ContainsKey(modelName);
-        }
-
-        public HiddenMarkovModel<MultivariateNormalDistribution> GetModel(string modelName) {
-            HiddenMarkovModel<MultivariateNormalDistribution> value;
-            if(models.TryGetValue(modelName, out value)) {
-                return value;
-            }
-            return null;
+        public static List<HiddenMarkovModel<MultivariateNormalDistribution>> GetModels(
+            List<string> gestureNames,
+            Dictionary<string, HiddenMarkovModel<MultivariateNormalDistribution>> allModels) {
+            return gestureNames.ConvertAll(gestureName => allModels[gestureName]);
         }
     }
 }

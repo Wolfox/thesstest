@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sequences
 {
-    public class CulturalPair {
+    class CulturalPair {
 
         private string action { get; set; }
         private string culture { get; set; }
@@ -29,15 +29,6 @@ namespace Sequences
             return (this.action.Equals(pair.action) && this.culture.Equals(pair.culture));
         }
 
-        /*
-        public bool Equals(CulturalPair pair)
-        {
-            if (pair == null) {
-                return false;
-            }
-            return (this.action.Equals(pair.action) && this.culture.Equals(pair.culture));
-        }*/
-
         public static bool operator == (CulturalPair a, CulturalPair b)
         {
             return (a.action == b.action && a.culture == b.culture);
@@ -50,11 +41,11 @@ namespace Sequences
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return action.GetHashCode() ^ culture.GetHashCode();
         }
     }
 
-    class CulturalLayer {
+    public class CulturalLayer {
 
         private Dictionary<CulturalPair, string> culturalGestures;
         private Dictionary<string, string> customGestures;
@@ -69,7 +60,7 @@ namespace Sequences
             {
                 customGestures.Add(action, gestureName);
             }
-            catch (ArgumentException e)
+            catch (System.ArgumentException e)
             {
                 customGestures[action] = gestureName;
             }
@@ -102,7 +93,7 @@ namespace Sequences
         }
 
 
-        public List<string> GetGestureName(List<string> actions, string culture)
+        public List<string> GetGesturesNames(List<string> actions, string culture)
         {
             return actions.ConvertAll(action => GetGestureName(action, culture));
         }

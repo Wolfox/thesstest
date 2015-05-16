@@ -40,3 +40,6 @@ C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Ge
 C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\Accord.MachineLearning.xml
 C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\AForge.xml
 C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\AForge.Math.xml
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\LeapCSharp.NET3.5.dll
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\Gesture_Recorder.exe.config
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM__Gesture_Test\HMM__Gesture_Test\bin\Debug\HMM_Gesture_Test.exe.config

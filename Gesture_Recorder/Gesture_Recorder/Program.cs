@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace HMM__Gesture_Test
+namespace Gesture_Recorder
 {
     class Program
     {
@@ -22,41 +22,6 @@ namespace HMM__Gesture_Test
 
         static void Main(string[] args)
         {
-
-            CulturalLayer cl = new CulturalLayer();
-            List<string> gest = new List<string>();
-            List<string> ptGest = new List<string>();
-            List<string> nlGest = new List<string>();
-
-            gest.Add("WAVE");
-            gest.Add("POINT");
-            gest.Add("DRINK");
-
-            cl.AddCustomGesture("WAVE", "HI");
-            cl.AddCustomGesture("POINT", "HAND");
-            cl.AddCustomGesture("DRINK", "DRUNK");
-
-            cl.AddCultureGesture("WAVE", "PT", "OLA");
-            cl.AddCultureGesture("WAVE", "NL", "HALLO");
-            cl.AddCultureGesture("POINT", "PT", "APONTAR");
-
-            Console.WriteLine("Wave in PT:" + cl.GetGestureName("WAVE", "PT"));
-            Console.WriteLine("Wave in NL:" + cl.GetGestureName("WAVE", "NL"));
-            Console.WriteLine("Point in PT:" + cl.GetGestureName("POINT", "PT"));
-            Console.WriteLine("Point in NL:" + cl.GetGestureName("POINT", "NL"));
-            Console.WriteLine("Drink in PT:" + cl.GetGestureName("DRINK", "PT"));
-            Console.WriteLine("Drink in NL:" + cl.GetGestureName("DRINK", "NL"));
-
-            ptGest = cl.GetGesturesNames(gest, "PT");
-            nlGest = cl.GetGesturesNames(gest, "NL");
-
-            Console.WriteLine("Wave in PT:" + ptGest[0]);
-            Console.WriteLine("Wave in NL:" + nlGest[0]);
-            Console.WriteLine("Point in PT:" + ptGest[1]);
-            Console.WriteLine("Point in NL:" + nlGest[1]);
-            Console.WriteLine("Drink in PT:" + ptGest[2]);
-            Console.WriteLine("Drink in NL:" + nlGest[2]);
-
             //HMM.Test();
             //Gestures.TestReal();
             //Gestures.Test();
@@ -137,12 +102,13 @@ namespace HMM__Gesture_Test
         static void MainChoice()
         {
             Console.Write(
-                "1) Read\n"+
-                "2) Load\n"+
+                "1) Read\n" +
+                "2) Load\n" +
                 "3) Test\n"
                 );
             int a = int.Parse(Console.ReadLine());
-            switch (a) {
+            switch (a)
+            {
                 case 1:
                     Read("BackR0.bin", 100, 10, true);
                     Read("BackR1.bin", 100, 10, true);
@@ -161,7 +127,7 @@ namespace HMM__Gesture_Test
                     Console.WriteLine("NOT DEFINED");
                     break;
             }
-            
+
         }
 
         static void Read(string filename, int nRead, int nFrame, bool auto)
@@ -195,6 +161,43 @@ namespace HMM__Gesture_Test
         static void Test()
         {
             Gestures.Test123();
+        }
+
+        static void CulturalTest()
+        {
+            CulturalLayer cl = new CulturalLayer();
+            List<string> gest = new List<string>();
+            List<string> ptGest = new List<string>();
+            List<string> nlGest = new List<string>();
+
+            gest.Add("WAVE");
+            gest.Add("POINT");
+            gest.Add("DRINK");
+
+            cl.AddCustomGesture("WAVE", "HI");
+            cl.AddCustomGesture("POINT", "HAND");
+            cl.AddCustomGesture("DRINK", "DRUNK");
+
+            cl.AddCultureGesture("WAVE", "PT", "OLA");
+            cl.AddCultureGesture("WAVE", "NL", "HALLO");
+            cl.AddCultureGesture("POINT", "PT", "APONTAR");
+
+            Console.WriteLine("Wave in PT:" + cl.GetGestureName("WAVE", "PT"));
+            Console.WriteLine("Wave in NL:" + cl.GetGestureName("WAVE", "NL"));
+            Console.WriteLine("Point in PT:" + cl.GetGestureName("POINT", "PT"));
+            Console.WriteLine("Point in NL:" + cl.GetGestureName("POINT", "NL"));
+            Console.WriteLine("Drink in PT:" + cl.GetGestureName("DRINK", "PT"));
+            Console.WriteLine("Drink in NL:" + cl.GetGestureName("DRINK", "NL"));
+
+            ptGest = cl.GetGesturesNames(gest, "PT");
+            nlGest = cl.GetGesturesNames(gest, "NL");
+
+            Console.WriteLine("Wave in PT:" + ptGest[0]);
+            Console.WriteLine("Wave in NL:" + nlGest[0]);
+            Console.WriteLine("Point in PT:" + ptGest[1]);
+            Console.WriteLine("Point in NL:" + nlGest[1]);
+            Console.WriteLine("Drink in PT:" + ptGest[2]);
+            Console.WriteLine("Drink in NL:" + nlGest[2]);
         }
 
     }
