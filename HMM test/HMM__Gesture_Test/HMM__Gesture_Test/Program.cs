@@ -81,7 +81,7 @@ namespace HMM__Gesture_Test
             SequenceList seqList = Utils.FramesToSequenceList(listFrame);
             Utils.SaveSequenceList(seqList, "Right.bin");*/
 
-            //MainChoice();
+            MainChoice();
 
             /*List<List<Frame>> frames = Utils.LoadListListFrame("Frames/Close.bin");
             SequenceList seqlist = Utils.FramesToSequenceList(frames);

@@ -13,10 +13,10 @@ namespace Gesture_Recorder
 
         private int numOfFramesPerSeq;
         private List<Frame> sequence;
-        private Gesture1 parent;
+        private Gesture parent;
         private bool isAuto;
 
-        public void Initialization(int num, Gesture1 p, bool auto)
+        public void Initialization(int num, Gesture p, bool auto)
         {
             numOfFramesPerSeq = num;
             parent = p;
@@ -31,7 +31,7 @@ namespace Gesture_Recorder
 
         public override void OnFrame(Controller controller)
         {
-            if (parent.state != Gesture1.GestureState.Reading) { return; }
+            if (parent.state != Gesture.GestureState.Reading) { return; }
 
             Frame frame = controller.Frame();
             HandList hands = frame.Hands;

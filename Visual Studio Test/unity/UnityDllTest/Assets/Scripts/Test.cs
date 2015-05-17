@@ -47,6 +47,7 @@ public class Test : MonoBehaviour {
 	
 	void Start () {
 
+		HelpASDFG("data/OPEN_FRONT.bin", "OPEN_FRONT_MODEL.bin");
 		/*HelpASDFG("data/Close.bin", "CloseModel.bin");
 		HelpASDFG("data/Open.bin", "OpenModel.bin");
 		HelpASDFG("Front.bin", "FrontModel.bin");

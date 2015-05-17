@@ -18,107 +18,33 @@ namespace Gesture_Recorder
 {
     class Program
     {
-        static string MAIN_PATH = "Frames/";
+        static string FRAMES_PATH = "Frames/";
+        static string SAMPLE_PATH = "Frames/Samples/";
+        static string EXTENSION = ".frs";
 
         static void Main(string[] args)
         {
-            //HMM.Test();
-            //Gestures.TestReal();
-            //Gestures.Test();
-            //Gestures.Test2();
-            //HMM2.Test();
-
-            /*Stream readStream = new FileStream("Back.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            SequenceList sl = SequenceList.Load(readStream);
-            readStream.Close();
-
-            Console.WriteLine(sl.sequences[0].GetDimensions());*/
-
-            //Gestures.ToTest();
-
-            /*SequenceList samples = new SequenceList();
-
-            Stream writeStream = new FileStream("ASD.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            samples.Save(writeStream);
-            writeStream.Close();*/
-
-            /*List<List<Frame>> listFrame = Utils.LoadListListFrame("Frames/Right.bin");
-            SequenceList seqList = Utils.FramesToSequenceList(listFrame);
-            Utils.SaveSequenceList(seqList, "Right.bin");*/
-
-            //MainChoice();
-
-            /*List<List<Frame>> frames = Utils.LoadListListFrame("Frames/Close.bin");
-            SequenceList seqlist = Utils.FramesToSequenceList(frames);
-            Stream writeStream = new FileStream("Close.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            seqlist.Save(writeStream);
-            writeStream.Close();*/
-
-            /*List<List<Frame>> frames = Utils.LoadListListFrame("Frames/Open.bin");
-            SequenceList seq = Utils.FramesToSequenceList(frames);
-
-            Stream writeStream = new FileStream("Open.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            seq.Save(writeStream);
-            writeStream.Close();*/
-
-            /*Stream readStream = new FileStream("Front.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            SequenceList inputSeq = SequenceList.Load(readStream);
-            readStream.Close();
-
-            HiddenMarkovModel<MultivariateNormalDistribution> hmm;
-            hmm = new HiddenMarkovModel<MultivariateNormalDistribution>(new Forward(5),
-               new MultivariateNormalDistribution(inputSeq.GetArray()[0][0].Length));
-
-            hmm.Save("TestModel.bin");*/
-
-            //HelpASDFG("Front.bin", "FrontModel.bin");
-            //HelpASDFG("Back.bin", "BackModel.bin");
-            //HelpASDFG("Left.bin", "LeftModel.bin");
-            //HelpASDFG("Right.bin", "RightModel.bin");
+            MainChoice();
 
             Console.WriteLine("Press Enter to quit...");
             Console.ReadLine();
-
-        }
-
-        static void HelpASDFG(string readPath, string writePath)
-        {
-            Console.WriteLine("Loading");
-            Stream readStream = new FileStream(readPath, FileMode.Open, FileAccess.Read, FileShare.Read);
-            SequenceList seq = SequenceList.Load(readStream);
-            readStream.Close();
-
-            HiddenMarkovModel<MultivariateNormalDistribution> hmm = new HiddenMarkovModel<MultivariateNormalDistribution>(new Forward(5),
-                new MultivariateNormalDistribution(seq.GetArray()[0][0].Length));
-
-            Console.WriteLine("Teaching");
-            var teacher = new BaumWelchLearning<MultivariateNormalDistribution>(hmm);
-            teacher.Run(seq.GetArray());
-
-            Console.WriteLine("Saving");
-            hmm.Save(writePath);
         }
 
         static void MainChoice()
         {
             Console.Write(
                 "1) Read\n" +
-                "2) Load\n" +
+                "2) Aggregate\n" +
                 "3) Test\n"
                 );
             int a = int.Parse(Console.ReadLine());
             switch (a)
             {
                 case 1:
-                    Read("BackR0.bin", 100, 10, true);
-                    Read("BackR1.bin", 100, 10, true);
-                    Read("BackR2.bin", 100, 10, true);
-                    Read("BackL0.bin", 100, 10, true);
-                    Read("BackL1.bin", 100, 10, true);
-                    Read("BackL2.bin", 100, 10, true);
+                    MainRead();
                     break;
                 case 2:
-                    Load();
+                    MainLoad();
                     break;
                 case 3:
                     Test();
@@ -130,74 +56,148 @@ namespace Gesture_Recorder
 
         }
 
-        static void Read(string filename, int nRead, int nFrame, bool auto)
+        static void MainRead()
         {
+            string gestureName = ReadString("Gesture Name: ");
+            bool bothHands = ReadYN("Read both hands? (y/n) ");
+            int numOfSepFiles = ReadInt("Number of separated files (per hand): ");
+            bool autoRead = ReadYN("AutoRead? (y/n) ");
+            int numOfRead = ReadInt("Number of reads per file: ");
+            int numOfFrames = ReadInt("Number of frames per read: ");
+
+            if (bothHands)
+            {
+                ReadN(gestureName + "R", numOfRead, numOfFrames, autoRead, numOfSepFiles);
+                ReadN(gestureName + "L", numOfRead, numOfFrames, autoRead, numOfSepFiles);
+            }
+            else
+            {
+                ReadN(gestureName, numOfRead, numOfFrames, autoRead, numOfSepFiles);
+            }
+
+            //AggregateFrames(gestureName, bothHands, numOfSepFiles);
+        }
+
+        static bool ReadYN(string text) {
+            while (true) {
+                Console.Write(text);
+                string read = Console.ReadLine();
+                if (read == "y") {
+                    return true;
+                }
+
+                if (read == "n") {
+                    return false;
+                }
+            }
+        }
+
+        static string ReadString(string text)
+        {
+            Console.Write(text);
+            return Console.ReadLine();
+        }
+
+        static int ReadInt(string text)
+        {
+            Console.Write(text);
+            return Convert.ToInt32(Console.ReadLine());
+        }
+
+        static void ReadN(string filename, int nRead, int nFrame, bool auto, int N) {
+            for (int i = 0; i < N; i++)
+            {
+                Read(filename + i, nRead, nFrame, auto);
+            }
+        }
+
+        static void Read(string filename, int nRead, int nFrame, bool auto) {
             Console.WriteLine("READ");
-            Gesture1 g = new Gesture1(nRead, nFrame, auto);
-            string path = MAIN_PATH + filename;
+            Gesture g = new Gesture(nRead, nFrame, auto);
+            string path = SAMPLE_PATH + filename + EXTENSION;
             g.Read(path);
 
         }
 
-        static void Load()
+        static void MainLoad()
         {
-            Console.WriteLine("LOAD");
-            List<List<Frame>> endList = new List<List<Frame>>();
-            List<List<Frame>> lf0 = Utils.LoadListListFrame("Frames/BackR0.bin");
-            List<List<Frame>> lf1 = Utils.LoadListListFrame("Frames/BackR1.bin");
-            List<List<Frame>> lf2 = Utils.LoadListListFrame("Frames/BackR2.bin");
-            List<List<Frame>> lf3 = Utils.LoadListListFrame("Frames/BackL0.bin");
-            List<List<Frame>> lf4 = Utils.LoadListListFrame("Frames/BackL1.bin");
-            List<List<Frame>> lf5 = Utils.LoadListListFrame("Frames/BackL2.bin");
-            endList = Utils.JoinListListFrame(lf0, lf1);
-            endList = Utils.JoinListListFrame(endList, lf2);
-            endList = Utils.JoinListListFrame(endList, lf3);
-            endList = Utils.JoinListListFrame(endList, lf4);
-            endList = Utils.JoinListListFrame(endList, lf5);
+            Console.WriteLine("Aggregate");
 
-            Utils.SaveListListFrame(endList, "Frames/Back.bin");
+            string filename = ReadString("filename: ");
+            bool bothHands = ReadYN("Both hands? (y/n) ");
+            int numOfFiles = ReadInt("Number of Files? ");
+
+            AggregateFrames(filename, bothHands, numOfFiles);
+        }
+
+        static void AggregateFrames(string filename, bool bothHands, int numOfFiles) {
+
+            List<List<Frame>> endList = new List<List<Frame>>();
+
+            if (bothHands)
+            {
+                endList.AddRange(AggregateFrames(filename + "R", numOfFiles));
+                endList.AddRange(AggregateFrames(filename + "L", numOfFiles));
+            }
+            else
+            {
+                endList = AggregateFrames(filename, numOfFiles);
+            }
+
+            if (endList.Count == 0)
+            {
+                Console.WriteLine("Files not found, or empty files");
+                return;
+            }
+
+            Utils.SaveListListFrame(endList, FRAMES_PATH + filename + EXTENSION);
+        }
+
+        static List<List<Frame>> AggregateFrames(string filename, int numOfFiles)
+        {
+            List<List<Frame>> endList = new List<List<Frame>>();
+
+            for (int i = 0; i < numOfFiles; i++)
+            {
+                endList.AddRange(Utils.LoadListListFrame(SAMPLE_PATH + filename + i + EXTENSION));
+            }
+            
+            return endList;
         }
 
         static void Test()
         {
-            Gestures.Test123();
+            Console.WriteLine("Aggregate");
+
+            string filename = ReadString("filename: ");
+
+            List<List<Frame>> frameList = Utils.LoadListListFrame(FRAMES_PATH + filename + EXTENSION);
+
+            Console.WriteLine("Num of Seq: " + frameList.Count);
+            Console.WriteLine("Num of Frames in first seq:" + frameList[0].Count);
+
         }
 
-        static void CulturalTest()
+        static void TestNumOfFrames()
         {
-            CulturalLayer cl = new CulturalLayer();
-            List<string> gest = new List<string>();
-            List<string> ptGest = new List<string>();
-            List<string> nlGest = new List<string>();
+            TestListener listener = new TestListener();
+            listener.Init();
+            Controller controller = new Controller(listener);
 
-            gest.Add("WAVE");
-            gest.Add("POINT");
-            gest.Add("DRINK");
+            Console.WriteLine("Press Enter to start counting frames!");
+            Console.ReadLine();
 
-            cl.AddCustomGesture("WAVE", "HI");
-            cl.AddCustomGesture("POINT", "HAND");
-            cl.AddCustomGesture("DRINK", "DRUNK");
+            listener.startCounting();
 
-            cl.AddCultureGesture("WAVE", "PT", "OLA");
-            cl.AddCultureGesture("WAVE", "NL", "HALLO");
-            cl.AddCultureGesture("POINT", "PT", "APONTAR");
+            Console.WriteLine("Counting... Press Enter again to stop counting frames!");
+            Console.ReadLine();
 
-            Console.WriteLine("Wave in PT:" + cl.GetGestureName("WAVE", "PT"));
-            Console.WriteLine("Wave in NL:" + cl.GetGestureName("WAVE", "NL"));
-            Console.WriteLine("Point in PT:" + cl.GetGestureName("POINT", "PT"));
-            Console.WriteLine("Point in NL:" + cl.GetGestureName("POINT", "NL"));
-            Console.WriteLine("Drink in PT:" + cl.GetGestureName("DRINK", "PT"));
-            Console.WriteLine("Drink in NL:" + cl.GetGestureName("DRINK", "NL"));
 
-            ptGest = cl.GetGesturesNames(gest, "PT");
-            nlGest = cl.GetGesturesNames(gest, "NL");
+            int numOfFrames = listener.endCounting();
+            Console.WriteLine("Stopped! The number of frames read was " + numOfFrames + " frame(s).");
 
-            Console.WriteLine("Wave in PT:" + ptGest[0]);
-            Console.WriteLine("Wave in NL:" + nlGest[0]);
-            Console.WriteLine("Point in PT:" + ptGest[1]);
-            Console.WriteLine("Point in NL:" + nlGest[1]);
-            Console.WriteLine("Drink in PT:" + ptGest[2]);
-            Console.WriteLine("Drink in NL:" + nlGest[2]);
+            controller.RemoveListener(listener);
+            controller.Dispose();
         }
 
     }

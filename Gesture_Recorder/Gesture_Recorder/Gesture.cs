@@ -12,7 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace Gesture_Recorder
 {
 
-    public class Gesture1
+    public class Gesture
     {
         public enum GestureState { Starting, Reading, Saving };
 
@@ -24,7 +24,7 @@ namespace Gesture_Recorder
 
         private int actualNumOfReads;
 
-        public Gesture1(int numReads, int numFramesRead, bool auto)
+        public Gesture(int numReads, int numFramesRead, bool auto)
         {
             numOfReads = numReads;
             numOfFramesPerRead = numFramesRead;
