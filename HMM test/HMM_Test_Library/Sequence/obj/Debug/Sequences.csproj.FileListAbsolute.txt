@@ -15,6 +15,6 @@ C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence
 C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.xml
 C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.Math.pdb
 C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\bin\Debug\Accord.Math.xml
-C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.csprojResolveAssemblyReference.cache
 C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.dll
 C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.pdb
+C:\Users\AntonioPinto\Desktop\Tests\thesstest\HMM test\HMM_Test_Library\Sequence\obj\Debug\Sequences.csprojResolveAssemblyReference.cache

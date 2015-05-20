@@ -14,14 +14,12 @@ namespace Gesture_Recorder
         private int numOfFramesPerSeq;
         private List<Frame> sequence;
         private Gesture parent;
-        private bool isAuto;
 
-        public void Initialization(int num, Gesture p, bool auto)
+        public void Initialization(int num, Gesture p)
         {
             numOfFramesPerSeq = num;
             parent = p;
             sequence = new List<Frame>();
-            isAuto = auto;
         }
 
         public override void OnConnect(Controller controller)
@@ -40,10 +38,9 @@ namespace Gesture_Recorder
             if (hands.Count > 1) { Console.WriteLine("MORE THAN 1 HAND"); return; }
 
             sequence.Add(frame);
-            if (sequence.Count >= numOfFramesPerSeq && isAuto)
+            if (sequence.Count >= numOfFramesPerSeq && numOfFramesPerSeq != 0)
             {
-                parent.Store(sequence);
-                sequence = new List<Frame>();
+                GetSequence();
             }
         }
 

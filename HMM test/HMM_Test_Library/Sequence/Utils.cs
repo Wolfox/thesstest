@@ -1,5 +1,7 @@
 ﻿using Accord.Statistics.Distributions.Multivariate;
 using Accord.Statistics.Models.Markov;
+using Accord.Statistics.Models.Markov.Learning;
+using Accord.Statistics.Models.Markov.Topology;
 using Leap;
 using System;
 using System.Collections.Generic;
@@ -21,15 +23,20 @@ namespace Sequences
             if (!hand.IsValid) { return null; }
 
             FingerList fingers = hand.Fingers;
-            Finger finger;
-            List<double> inputs = new List<double>();
+
+            List<double> values = new List<double>();
+
+            double[] palmDir = Array.ConvertAll(hand.PalmNormal.ToFloatArray(), x => System.Convert.ToDouble(x));
+            values.AddRange(palmDir);
+
             for (int i = 0; i < fingers.Count; i++)
             {
-                finger = fingers[i];
-                double[] asdfg = Array.ConvertAll(finger.Direction.ToFloatArray(), x => System.Convert.ToDouble(x));
-                inputs.AddRange(asdfg);
+                Finger finger = fingers[i];
+                double[] fingerDirs = Array.ConvertAll(finger.Direction.ToFloatArray(), x => System.Convert.ToDouble(x));
+                values.AddRange(fingerDirs);
             }
-            return new Sign(inputs.ToArray());
+
+            return new Sign(values.ToArray());
         }
 
         public static Sequence FramesToSequence(List<Frame> frames)
@@ -43,8 +50,7 @@ namespace Sequences
             SequenceList seqList = new SequenceList();
             for (int i = 0; i < frames.Count; i++)
             {
-                Sequence seq = FramesToSequence(frames[i]);
-                seqList.sequences.Add(seq);
+                seqList.sequences.Add(FramesToSequence(frames[i]));
             }
             return seqList;
         }
@@ -173,6 +179,21 @@ namespace Sequences
             SequenceList seqList = SequenceList.Load(readStream);
             readStream.Close();
             return seqList;
+        }
+
+        public static HiddenMarkovModel<MultivariateNormalDistribution> CreateModelFromFrames(List<List<Frame>> frames) {
+            SequenceList seq = Utils.FramesToSequenceList(frames);
+
+            HiddenMarkovModel<MultivariateNormalDistribution> hmm;
+            MultivariateNormalDistribution mnd = new MultivariateNormalDistribution(seq.GetArray()[0][0].Length);
+            hmm = new HiddenMarkovModel<MultivariateNormalDistribution>(new Forward(5), mnd);
+
+            var teacher = new BaumWelchLearning<MultivariateNormalDistribution>(hmm);
+            teacher.Tolerance = 0.001;
+            teacher.Iterations = 0;
+            teacher.Run(seq.GetArray());
+
+            return hmm;
         }
     }
 }

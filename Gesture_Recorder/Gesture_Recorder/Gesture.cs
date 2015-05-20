@@ -14,7 +14,7 @@ namespace Gesture_Recorder
 
     public class Gesture
     {
-        public enum GestureState { Starting, Reading, Saving };
+        public enum GestureState { Starting, Reading, Idle, Saving };
 
         int numOfReads;
         int numOfFramesPerRead;
@@ -38,7 +38,7 @@ namespace Gesture_Recorder
         public void Read(string path)
         {
             ReadListener listener = new ReadListener();
-            listener.Initialization(numOfFramesPerRead, this, isAuto);
+            listener.Initialization(numOfFramesPerRead, this);
             Controller controller = new Controller();
             controller.AddListener(listener);
 
@@ -46,18 +46,22 @@ namespace Gesture_Recorder
             Console.WriteLine("Press enter to start reading frames to file " + path);
             Console.ReadLine();
             Console.WriteLine("num: " + actualNumOfReads);
-            state = GestureState.Reading;
-            while (state == GestureState.Reading)
-            {
-                if (!isAuto)
-                {
+            state = GestureState.Idle;
+
+            while (state != GestureState.Saving) {
+                if (!isAuto) {
                     Console.ReadLine();
-                    Console.WriteLine("Reading...");
-                    Console.ReadLine();
-                    listener.GetSequence();
+                }
+                state = GestureState.Reading;
+                Console.WriteLine("Reading...");
+
+                while (state == GestureState.Reading) {
+                    if (numOfFramesPerRead == 0) {
+                        Console.ReadLine();
+                        listener.GetSequence();
+                    }
                 }
             }
-
 
             Utils.SaveListListFrame(sequencesToRead, path);
 
@@ -67,6 +71,7 @@ namespace Gesture_Recorder
 
         public void Store(List<Frame> handSeq)
         {
+            state = GestureState.Idle;
             sequencesToRead.Add(handSeq);
             actualNumOfReads++;
             Console.WriteLine("num: " + actualNumOfReads);

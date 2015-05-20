@@ -14,23 +14,19 @@ namespace Sequences
 
         public List<Sign> sequence;
 
-        public Sequence()
-        {
+        public Sequence() {
             sequence = new List<Sign>();
         }
 
-        public Sequence(List<Sign> seq)
-        {
+        public Sequence(List<Sign> seq) {
             sequence = seq;
         }
 
-        public Sequence Clone()
-        {
+        public Sequence Clone() {
             return new Sequence(sequence.ConvertAll<Sign>(i => i));
         }
 
-        public int GetDimensions()
-        {
+        public int GetDimensions() {
             if (sequence.Count < 1)
             {
                 return 0;
@@ -38,8 +34,7 @@ namespace Sequences
             return sequence[0].GetDimensions();
         }
 
-        public bool CheckDimensions()
-        {
+        public bool CheckDimensions() {
             int dim = GetDimensions();
             for (int i = 1; i < sequence.Count; i++)
             {
@@ -48,8 +43,7 @@ namespace Sequences
                 return true;
         }
 
-        public double[][] GetArray()
-        {
+        public double[][] GetArray() {
             return sequence.Select<Sign, double[]>(i => i.GetValues()).ToArray();
         }
 

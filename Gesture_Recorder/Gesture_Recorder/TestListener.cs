@@ -13,12 +13,11 @@ namespace Gesture_Recorder
         private bool active;
 
 
-        public void Init()
-        {
+        public void Init() {
             numOfFrames = 0;
             active = false;
-
         }
+
         public override void OnConnect(Controller controller) {
             Console.WriteLine("Connected, using TestListener");
         }
@@ -34,8 +33,7 @@ namespace Gesture_Recorder
             active = true;
         }
 
-        public int endCounting()
-        {
+        public int endCounting() {
             active = false;
             return numOfFrames;
         }

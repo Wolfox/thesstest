@@ -47,7 +47,7 @@ namespace Gesture_Recorder
                     MainLoad();
                     break;
                 case 3:
-                    Test();
+                    TestNumOfFrames();
                     break;
                 default:
                     Console.WriteLine("NOT DEFINED");
@@ -65,13 +65,11 @@ namespace Gesture_Recorder
             int numOfRead = ReadInt("Number of reads per file: ");
             int numOfFrames = ReadInt("Number of frames per read: ");
 
-            if (bothHands)
-            {
+            if (bothHands) {
                 ReadN(gestureName + "R", numOfRead, numOfFrames, autoRead, numOfSepFiles);
                 ReadN(gestureName + "L", numOfRead, numOfFrames, autoRead, numOfSepFiles);
             }
-            else
-            {
+            else {
                 ReadN(gestureName, numOfRead, numOfFrames, autoRead, numOfSepFiles);
             }
 

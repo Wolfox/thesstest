@@ -50,5 +50,10 @@ namespace Sequences
         {
             classifer = new HiddenMarkovClassifier<MultivariateNormalDistribution>(models.ToArray());
         }
+
+        public double testModel(int i, double[][] sequence)
+        {
+            return models[i].Evaluate(sequence);
+        }
     }
 }
