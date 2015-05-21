@@ -22,6 +22,13 @@ namespace Sequences
 
             if (!hand.IsValid) { return null; }
 
+            return HandToSign(hand);
+        }
+
+        public static Sign HandToSign(Hand hand)
+        {
+            if (!hand.IsValid) { return null; }
+
             FingerList fingers = hand.Fingers;
 
             List<double> values = new List<double>();
