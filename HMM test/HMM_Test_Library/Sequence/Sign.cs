@@ -6,9 +6,7 @@ using System.Text;
 namespace Sequences
 {
     [Serializable]
-    public class Sign
-    {
-
+    public class Sign {
         private double[] values;
 
         public Sign(int dim = 0) {

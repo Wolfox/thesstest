@@ -57,7 +57,8 @@
     <Reference Include="LeapCSharp.NET3.5">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Leap Motion\lib\LeapCSharp.NET3.5.dll</HintPath>
     </Reference>
-    <Reference Include="Sequences">
+    <Reference Include="Sequences, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\HMM test\HMM_Test_Library\Sequence\bin\Debug\Sequences.dll</HintPath>
     </Reference>
     <Reference Include="System" />

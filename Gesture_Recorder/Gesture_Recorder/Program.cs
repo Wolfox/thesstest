@@ -47,7 +47,8 @@ namespace Gesture_Recorder
                     MainLoad();
                     break;
                 case 3:
-                    TestNumOfFrames();
+                    testAgain();
+                    //TestNumOfFrames();
                     break;
                 default:
                     Console.WriteLine("NOT DEFINED");
@@ -134,8 +135,9 @@ namespace Gesture_Recorder
 
             if (bothHands)
             {
-                endList.AddRange(AggregateFrames(filename + "R", numOfFiles));
-                endList.AddRange(AggregateFrames(filename + "L", numOfFiles));
+                endList = MixFrames(
+                    AggregateFrames(filename + "R", numOfFiles),
+                    AggregateFrames(filename + "L", numOfFiles));
             }
             else
             {
@@ -196,6 +198,61 @@ namespace Gesture_Recorder
 
             controller.RemoveListener(listener);
             controller.Dispose();
+        }
+
+        static void testAgain()
+        {
+            List<List<Frame>> endList = new List<List<Frame>>();
+            List<List<Frame>> testList = new List<List<Frame>>();
+
+            List<List<Frame>> listr = Utils.LoadListListFrame(SAMPLE_PATH + "HALT_HANDR0" + EXTENSION);
+            List<List<Frame>> listl = Utils.LoadListListFrame(SAMPLE_PATH + "HALT_HANDL0" + EXTENSION);
+
+            int index = 0;
+
+            for (index = 0; index < listr.Count && index < listl.Count; index++)
+            {
+                testList.Add(listr[index]);
+                testList.Add(listl[index]);
+            }
+
+            testList.AddRange(listl.GetRange(index, listl.Count - index));
+            testList.AddRange(listr.GetRange(index, listr.Count - index));
+
+            Utils.SaveListListFrame(testList, FRAMES_PATH + "HALT_HAND_alt" + EXTENSION);
+
+            /*for (int i = 0; i < 150; i++)
+            {
+                testList.Add(listr[i]);
+            }
+            for (int i = 0; i < 150; i++)
+            {
+                testList.Add(listl[i]);
+            }
+
+            /*endList.AddRange(Utils.LoadListListFrame(SAMPLE_PATH + "HALT_HANDR0" + EXTENSION));
+            endList.AddRange(Utils.LoadListListFrame(SAMPLE_PATH + "HALT_HANDR0" + EXTENSION));*/
+            /*endList.AddRange(testList);
+            Utils.SaveListListFrame(endList, FRAMES_PATH + "HALT_HAND_half" + EXTENSION);
+            endList.AddRange(testList);
+            Utils.SaveListListFrame(endList, FRAMES_PATH + "HALT_HAND_half2x" + EXTENSION);*/
+        }
+
+        static List<List<Frame>> MixFrames(List<List<Frame>> list1, List<List<Frame>> list2)
+        {
+            List<List<Frame>> returnList = new List<List<Frame>>();
+            int index = 0;
+
+            for (index = 0; index < list1.Count && index < list2.Count; index++)
+            {
+                returnList.Add(list1[index]);
+                returnList.Add(list2[index]);
+            }
+
+            returnList.AddRange(list1.GetRange(index, list1.Count - index));
+            returnList.AddRange(list2.GetRange(index, list2.Count - index));
+
+            return returnList;
         }
 
     }
