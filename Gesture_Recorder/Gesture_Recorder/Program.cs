@@ -47,7 +47,8 @@ namespace Gesture_Recorder
                     MainLoad();
                     break;
                 case 3:
-                    testAgain();
+                    aggregateAll();
+                    //testAgain();
                     //TestNumOfFrames();
                     break;
                 default:
@@ -198,6 +199,28 @@ namespace Gesture_Recorder
 
             controller.RemoveListener(listener);
             controller.Dispose();
+        }
+
+        static void aggregateAll()
+        {
+            AggregateFrames("DRINK_NL", true, 30);
+            AggregateFrames("DRINK_PT", true, 30);
+            AggregateFrames("HALT_HAND", true, 1);
+            AggregateFrames("HAND_ROTATING", true, 2);
+            AggregateFrames("INDEX_HUSH", true, 3);
+            AggregateFrames("INDEX_ROTATING", true, 2);
+            AggregateFrames("MOUTH_MIMIC", true, 2);
+            AggregateFrames("NUM1", true, 3);
+            AggregateFrames("NUM2", true, 3);
+            AggregateFrames("NUM3", true, 3);
+            AggregateFrames("OPEN_FRONT", true, 3);
+            AggregateFrames("OPEN_LEFT", true, 3);
+            AggregateFrames("OPEN_RIGHT", true, 3);
+            AggregateFrames("THE_RING", true, 10);
+            AggregateFrames("THUMBS_DOWN", true, 3);
+            AggregateFrames("THUMBS_UP", true, 3);
+            AggregateFrames("WAVE_NO_THANKS", true, 2);
+            AggregateFrames("WAVE", true, 2);
         }
 
         static void testAgain()

@@ -15,17 +15,17 @@ namespace Sequences
 {
     public static class Utils
     {
-        public static Sign FrameToSign(Frame frame)
+        public static Sign FrameToSign(Frame frame, Frame prevFrame)
         {
             HandList hands = frame.Hands;
             Hand hand = hands.Rightmost;
 
             if (!hand.IsValid) { return null; }
 
-            return HandToSign(hand);
+            return HandToSign(hand, prevFrame);
         }
 
-        public static Sign HandToSign(Hand hand)
+        public static Sign HandToSign(Hand hand, Frame prevFrame)
         {
             if (!hand.IsValid) { return null; }
 
@@ -35,6 +35,12 @@ namespace Sequences
 
             double[] palmDir = Array.ConvertAll(hand.PalmNormal.ToFloatArray(), x => System.Convert.ToDouble(x));
             values.AddRange(palmDir);
+
+            /*Vector handMov = new Vector();
+            if (prevFrame != null) {
+                handMov = hand.Translation(prevFrame);
+            }
+            values.AddRange(Array.ConvertAll(handMov.ToFloatArray(), x => System.Convert.ToDouble(x)));*/
 
             for (int i = 0; i < fingers.Count; i++)
             {
@@ -48,7 +54,11 @@ namespace Sequences
 
         public static Sequence FramesToSequence(List<Frame> frames)
         {
-            List<Sign> signs = frames.ConvertAll(i => FrameToSign(i));
+            List<Sign> signs = new List<Sign>();
+            signs.Add(FrameToSign(frames[0], null));
+            for (int i = 1; i < frames.Count; i++){
+                signs.Add(FrameToSign(frames[i], frames[i-1]));
+            }
             return new Sequence(signs);
         }
 

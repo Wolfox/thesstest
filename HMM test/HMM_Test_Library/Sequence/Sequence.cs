@@ -59,7 +59,12 @@ namespace Sequences
         public int GetDimensions() {
             if (sequences.Count < 1) { return 0; }
             return sequences[0].GetDimensions();
-        } 
+        }
+
+        public int GetMaxSize()
+        {
+            return sequences.Max(element => element.sequence.Count);
+        }
 
         public void Save(Stream stream) {
             //Stream writeStream = new FileStream("MyFile1.bin", FileMode.Create, FileAccess.Write, FileShare.None);
@@ -101,7 +106,7 @@ namespace Sequences
                 buffer.sequence.Add(sign);
             }
 
-            while (buffer.sequence.Count < bufferSize) {
+            while (buffer.sequence.Count > bufferSize) {
                 buffer.sequence.RemoveAt(0);
             }
         }

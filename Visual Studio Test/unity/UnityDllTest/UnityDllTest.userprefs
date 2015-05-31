@@ -1,11 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\Culture.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\CharacterControllerScript.cs">
     <Files>
-      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\OptionsMenuScript.cs" Line="73" Column="24" />
-      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\CreateModelsScript.cs" Line="17" Column="5" />
-      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\CharacterControllerScript.cs" Line="57" Column="5" />
-      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\Culture.cs" Line="119" Column="2" />
+      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\CharacterControllerScript.cs" Line="37" Column="28" />
+      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\Culture.cs" Line="99" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
