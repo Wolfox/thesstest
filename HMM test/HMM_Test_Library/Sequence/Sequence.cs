@@ -81,10 +81,12 @@ namespace Sequences
     }
 
     public class SequenceBuffer {
+        //private Queue<Sign> buffer1;
         private Sequence buffer;
         private int bufferSize;
 
         public SequenceBuffer(int size = 10) {
+            //buffer1 = new Queue<Sign>();
             buffer = new Sequence();
             bufferSize = size;
         }
@@ -98,13 +100,20 @@ namespace Sequences
         }
 
         public Sequence getSequence() {
+            //return new Sequence(buffer1.ToList());
             return buffer.Clone();
         }
 
         public void AddSign(Sign sign) {
             if (sign != null) {
+                //buffer1.Enqueue(sign);
                 buffer.sequence.Add(sign);
             }
+
+            /*while (buffer1.Count > bufferSize)
+            {
+                buffer1.Dequeue();
+            }*/
 
             while (buffer.sequence.Count > bufferSize) {
                 buffer.sequence.RemoveAt(0);
@@ -113,6 +122,7 @@ namespace Sequences
 
         public void ClearSequence() {
             buffer.sequence.Clear();
+            //buffer1.Clear();
         }
     }
 }

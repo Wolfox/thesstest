@@ -14,7 +14,7 @@ namespace Gesture_Recorder
 
     public class Gesture
     {
-        public enum GestureState { Starting, Reading, Idle, Saving };
+        public enum GestureState { Starting, Reading, Idle, Storing, Saving };
 
         int numOfReads;
         int numOfFramesPerRead;
@@ -45,10 +45,11 @@ namespace Gesture_Recorder
             actualNumOfReads = 0;
             Console.WriteLine("Press enter to start reading frames to file " + path);
             Console.ReadLine();
-            Console.WriteLine("num: " + actualNumOfReads);
             state = GestureState.Idle;
 
-            while (state != GestureState.Saving) {
+            while (state != GestureState.Saving)
+            {
+                Console.WriteLine("num: " + (actualNumOfReads+1) + " in " + numOfReads);
                 if (!isAuto) {
                     Console.ReadLine();
                 }
@@ -61,7 +62,10 @@ namespace Gesture_Recorder
                         listener.GetSequence();
                     }
                 }
+                while (state == GestureState.Storing) { }
             }
+
+            while (state != GestureState.Saving) { }
 
             Utils.SaveListListFrame(sequencesToRead, path);
 
@@ -69,15 +73,16 @@ namespace Gesture_Recorder
             controller.Dispose();
         }
 
-        public void Store(List<Frame> handSeq)
-        {
-            state = GestureState.Idle;
-            sequencesToRead.Add(handSeq);
+        public void Store(List<Frame> handSeq) {
             actualNumOfReads++;
-            Console.WriteLine("num: " + actualNumOfReads);
-            if (actualNumOfReads >= numOfReads)
-            {
+            sequencesToRead.Add(handSeq);
+
+            if (actualNumOfReads >= numOfReads) {
                 state = GestureState.Saving;
+            }
+            else
+            {
+                state = GestureState.Idle;
             }
         }
 

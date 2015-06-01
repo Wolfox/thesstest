@@ -46,6 +46,7 @@ namespace Gesture_Recorder
 
         public void GetSequence()
         {
+            parent.state = Gesture.GestureState.Storing;
             parent.Store(sequence);
             sequence = new List<Frame>();
         }

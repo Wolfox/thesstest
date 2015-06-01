@@ -47,7 +47,8 @@ namespace Gesture_Recorder
                     MainLoad();
                     break;
                 case 3:
-                    aggregateAll();
+                    testanother();
+                    //aggregateAll();
                     //testAgain();
                     //TestNumOfFrames();
                     break;
@@ -60,6 +61,7 @@ namespace Gesture_Recorder
 
         static void MainRead()
         {
+            Console.WriteLine("Read!");
             string gestureName = ReadString("Gesture Name: ");
             bool bothHands = ReadYN("Read both hands? (y/n) ");
             int numOfSepFiles = ReadInt("Number of separated files (per hand): ");
@@ -112,7 +114,6 @@ namespace Gesture_Recorder
         }
 
         static void Read(string filename, int nRead, int nFrame, bool auto) {
-            Console.WriteLine("READ");
             Gesture g = new Gesture(nRead, nFrame, auto);
             string path = SAMPLE_PATH + filename + EXTENSION;
             g.Read(path);
@@ -121,7 +122,7 @@ namespace Gesture_Recorder
 
         static void MainLoad()
         {
-            Console.WriteLine("Aggregate");
+            Console.WriteLine("Aggregate!");
 
             string filename = ReadString("filename: ");
             bool bothHands = ReadYN("Both hands? (y/n) ");
@@ -151,6 +152,7 @@ namespace Gesture_Recorder
                 return;
             }
 
+            Console.WriteLine("Saving file " + filename + EXTENSION + " with " + endList.Count + " examples.");
             Utils.SaveListListFrame(endList, FRAMES_PATH + filename + EXTENSION);
         }
 
@@ -203,24 +205,31 @@ namespace Gesture_Recorder
 
         static void aggregateAll()
         {
-            AggregateFrames("DRINK_NL", true, 30);
-            AggregateFrames("DRINK_PT", true, 30);
-            AggregateFrames("HALT_HAND", true, 1);
-            AggregateFrames("HAND_ROTATING", true, 2);
-            AggregateFrames("INDEX_HUSH", true, 3);
-            AggregateFrames("INDEX_ROTATING", true, 2);
-            AggregateFrames("MOUTH_MIMIC", true, 2);
-            AggregateFrames("NUM1", true, 3);
-            AggregateFrames("NUM2", true, 3);
-            AggregateFrames("NUM3", true, 3);
-            AggregateFrames("OPEN_FRONT", true, 3);
-            AggregateFrames("OPEN_LEFT", true, 3);
-            AggregateFrames("OPEN_RIGHT", true, 3);
-            AggregateFrames("THE_RING", true, 10);
-            AggregateFrames("THUMBS_DOWN", true, 3);
-            AggregateFrames("THUMBS_UP", true, 3);
-            AggregateFrames("WAVE_NO_THANKS", true, 2);
-            AggregateFrames("WAVE", true, 2);
+            AggregateFrames("DRINK_NL", true, 30); //600
+            AggregateFrames("DRINK_PT", true, 30); //600
+            AggregateFrames("GRAB", true, 30); //600
+            AggregateFrames("HALT_HAND", true, 1); //600
+            AggregateFrames("HAND_ROTATING", true, 15); //600
+            AggregateFrames("INDEX_HUSH", true, 3); //600
+            AggregateFrames("INDEX_ROTATING", true, 15); //600
+            AggregateFrames("MOUTH_MIMIC", true, 10); //600
+            AggregateFrames("NUM1", true, 3); //600
+            AggregateFrames("NUM2", true, 3); //600
+            AggregateFrames("NUM3", true, 3); //600
+            AggregateFrames("OPEN_FRONT", true, 3); //600
+            AggregateFrames("OPEN_LEFT", true, 3); //600
+            AggregateFrames("OPEN_RIGHT", true, 3); //600
+            AggregateFrames("THE_RING", true, 3); //600
+            AggregateFrames("THUMBS_DOWN", true, 3); //600
+            AggregateFrames("THUMBS_UP", true, 3); //600
+            AggregateFrames("WAVE", true, 6); //600
+            AggregateFrames("WAVE_NO_THANKS", true, 6); //600
+        }
+
+        static void testanother()
+        {
+            List<List<Frame>> listl = Utils.LoadListListFrame(SAMPLE_PATH + "GRABR26" + EXTENSION);
+            Console.WriteLine(Utils.FramesToSequenceList(listl).GetMaxSize());
         }
 
         static void testAgain()
