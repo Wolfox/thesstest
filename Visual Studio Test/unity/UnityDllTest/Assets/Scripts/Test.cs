@@ -20,11 +20,11 @@ public class Test : MonoBehaviour {
 
 	public HandController controller;
 
-	private Sample sample;
-	private Classifier classifier;
+	//private Sample sample;
+	//private Classifier classifier;
 
 	void Awake() {
-		sample = new Sample(100);
+		//sample = new Sample(100);
 	}
 
 	HiddenMarkovModel<MultivariateNormalDistribution> HelpLoad(string path) {
@@ -33,7 +33,7 @@ public class Test : MonoBehaviour {
 
 	static void HelpASDFG(string readPath, string writePath)
 	{
-		Stream readStream = new FileStream(readPath, FileMode.Open, FileAccess.Read, FileShare.Read);
+		/*Stream readStream = new FileStream(readPath, FileMode.Open, FileAccess.Read, FileShare.Read);
 		SequenceList seq = SequenceList.Load(readStream);
 		readStream.Close();
 		
@@ -42,12 +42,12 @@ public class Test : MonoBehaviour {
 
 		var teacher = new BaumWelchLearning<MultivariateNormalDistribution>(hmm);
             teacher.Run(seq.GetArray());
-		hmm.Save(writePath);
+		hmm.Save(writePath);*/
 	}
 	
 	void Start () {
 
-		HelpASDFG("data/OPEN_FRONT.bin", "OPEN_FRONT_MODEL.bin");
+		/*HelpASDFG("data/OPEN_FRONT.bin", "OPEN_FRONT_MODEL.bin");
 		/*HelpASDFG("data/Close.bin", "CloseModel.bin");
 		HelpASDFG("data/Open.bin", "OpenModel.bin");
 		HelpASDFG("Front.bin", "FrontModel.bin");
@@ -55,7 +55,7 @@ public class Test : MonoBehaviour {
 		HelpASDFG("Left.bin", "LeftModel.bin");
 		HelpASDFG("Right.bin", "RightModel.bin");*/
 		
-		List<HiddenMarkovModel<MultivariateNormalDistribution>> models = new List<HiddenMarkovModel<MultivariateNormalDistribution>>();
+		/*List<HiddenMarkovModel<MultivariateNormalDistribution>> models = new List<HiddenMarkovModel<MultivariateNormalDistribution>>();
 
 		HiddenMarkovModel<MultivariateNormalDistribution> modelF = HelpLoad("FrontModel.bin");
 		HiddenMarkovModel<MultivariateNormalDistribution> modelR = HelpLoad("RightModel.bin");
@@ -77,26 +77,26 @@ public class Test : MonoBehaviour {
 
 		HiddenMarkovModel<MultivariateNormalDistribution> modelFT = HelpLoad("testFront.bin");*/
 		
-		models.Add (modelF);
+		/*models.Add (modelF);
 		models.Add (modelR);
 		models.Add (modelL);
 		models.Add (modelB);
 		models.Add (modelO);
 		models.Add (modelC);
 
-		classifier = new Classifier(models);
+		classifier = new Classifier(models);*/
 	}
 
 	void Update () {
-		int k = classifier.Run(sample.getSequence().GetArray());
-		Debug.Log(k);
+		//int k = classifier.Run(sample.getSequence().GetArray());
+		//Debug.Log(k);
 	}
 
 
 	void FixedUpdate() {
 		Frame frame = controller.GetFrame();
 		Sign s = FrameToSign.Frame2Sign(frame);
-		sample.AddSign(s);
+		//sample.AddSign(s);
 	}
 
 
