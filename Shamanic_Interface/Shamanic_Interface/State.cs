@@ -1,27 +1,31 @@
-﻿using Accord.Statistics.Distributions.Multivariate;
-using Accord.Statistics.Models.Markov;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+/*using Accord.Statistics.Distributions.Multivariate;
+using Accord.Statistics.Models.Markov;*/
 
-namespace Sequences {
+namespace Shamanic_Interface
+{
 
     public class State
     {
         private string stateName { get; set; }
         private List<string> actions;
 
-        public State(string name) {
+        public State(string name)
+        {
             stateName = name;
             actions = new List<string>();
         }
 
-        public void AddAction(string action) {
+        public void AddAction(string action)
+        {
             actions.Add(action);
         }
 
-        public List<string> GetActions() {
+        public List<string> GetActions()
+        {
             return actions;
         }
 
