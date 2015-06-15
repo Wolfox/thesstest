@@ -53,31 +53,31 @@ namespace Shamanic_Interface
     {
 
         private Dictionary<CulturalPair, string> culturalGestures;
-        private Dictionary<string, string> customGestures;
+        private Dictionary<string, string> defaultGestures;
 
         public CulturalLayer()
         {
             culturalGestures = new Dictionary<CulturalPair, string>();
-            customGestures = new Dictionary<string, string>();
+            defaultGestures = new Dictionary<string, string>();
         }
 
-        public void AddCustomGesture(string action, string gestureName)
+        public void AddDefaultGesture(string action, string gestureName)
         {
             try
             {
-                customGestures.Add(action, gestureName);
+                defaultGestures.Add(action, gestureName);
             }
             catch (System.ArgumentException e)
             {
-                customGestures[action] = gestureName;
+                defaultGestures[action] = gestureName;
             }
         }
 
         public void AddCultureGesture(string action, string culture, string gestureName)
         {
-            if (!customGestures.ContainsKey(action))
+            if (!defaultGestures.ContainsKey(action))
             {
-                AddCustomGesture(action, gestureName);
+                AddDefaultGesture(action, gestureName);
             }
 
             CulturalPair cultPair = new CulturalPair(action, culture);
@@ -99,7 +99,7 @@ namespace Shamanic_Interface
             {
                 return value;
             }
-            return customGestures[action];
+            return defaultGestures[action];
         }
 
 

@@ -1,15 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\LevelManager.cs">
-    <Files>
-      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\CharacterControllerScript.cs" Line="257" Column="1" />
-      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\GameScript.cs" Line="181" Column="35" />
-      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\GUIScript.cs" Line="51" Column="18" />
-      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\MainMenuScript.cs" Line="92" Column="5" />
-      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\Block.cs" Line="71" Column="53" />
-      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\LevelManager.cs" Line="51" Column="29" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
