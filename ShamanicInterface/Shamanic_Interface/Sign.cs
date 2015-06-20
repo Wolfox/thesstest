@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Shamanic_Interface
+namespace ShamanicInterface.DataStructure
 {
-    [Serializable]
+    //[Serializable]
     public class Sign
     {
         private double[] values;

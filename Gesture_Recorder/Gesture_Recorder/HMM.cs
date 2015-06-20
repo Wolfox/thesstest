@@ -12,7 +12,7 @@ using Accord.Statistics.Distributions.Fitting;
 using System.IO;
 using Sequences;
 
-namespace Gesture_Recorder
+namespace GestureRecorder.Tests
 {
     class HMM
     {

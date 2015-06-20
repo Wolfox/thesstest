@@ -5,7 +5,7 @@ using System.Text;
 using Leap;
 using Sequences;
 
-namespace Gesture_Recorder
+namespace GestureRecorder.Tests
 {
     class MyListener : Listener
     {

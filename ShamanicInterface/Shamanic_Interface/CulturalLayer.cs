@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Shamanic_Interface
+namespace ShamanicInterface.Culture
 {
     class CulturalPair
     {
@@ -67,7 +67,7 @@ namespace Shamanic_Interface
             {
                 defaultGestures.Add(action, gestureName);
             }
-            catch (System.ArgumentException e)
+            catch (System.ArgumentException)
             {
                 defaultGestures[action] = gestureName;
             }
@@ -85,7 +85,7 @@ namespace Shamanic_Interface
             {
                 culturalGestures.Add(cultPair, gestureName);
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 culturalGestures[cultPair] = gestureName;
             }

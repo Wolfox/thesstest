@@ -5,21 +5,21 @@ using System.Text;
 using Accord.Statistics.Distributions.Multivariate;
 using Accord.Statistics.Models.Markov;
 
-namespace Shamanic_Interface
+namespace ShamanicInterface.Classifier
 {
-    public class Classifier
+    public class HMMClassifier
     {
         HiddenMarkovClassifier<MultivariateNormalDistribution> classifer;
         List<HiddenMarkovModel<MultivariateNormalDistribution>> models;
         List<string> names;
 
-        public Classifier()
+        public HMMClassifier()
         {
             models = new List<HiddenMarkovModel<MultivariateNormalDistribution>>();
             names = new List<string>();
         }
 
-        public Classifier(List<HiddenMarkovModel<MultivariateNormalDistribution>> models, List<string> names)
+        public HMMClassifier(List<HiddenMarkovModel<MultivariateNormalDistribution>> models, List<string> names)
         {
             this.models = models;
             this.names = names;

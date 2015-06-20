@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Gesture_Recorder
+namespace GestureRecorder
 {
     class Program
     {
@@ -33,9 +33,9 @@ namespace Gesture_Recorder
         static void MainChoice()
         {
             Console.Write(
-                "1) Read\n" +
-                "2) Aggregate\n" +
-                "3) Test\n"
+                "1) Read\n"
+                + "2) Aggregate\n"
+                //+ "3) Test\n"
                 );
             int a = int.Parse(Console.ReadLine());
             switch (a)
@@ -46,12 +46,12 @@ namespace Gesture_Recorder
                 case 2:
                     MainLoad();
                     break;
-                case 3:
+                /*case 3:
                     testanother();
                     //aggregateAll();
                     //testAgain();
                     //TestNumOfFrames();
-                    break;
+                    break;*/
                 default:
                     Console.WriteLine("NOT DEFINED");
                     break;
@@ -114,9 +114,9 @@ namespace Gesture_Recorder
         }
 
         static void Read(string filename, int nRead, int nFrame, bool auto) {
-            Gesture g = new Gesture(nRead, nFrame, auto);
+            Recorder recorder = new Recorder(nRead, nFrame, auto);
             string path = SAMPLE_PATH + filename + EXTENSION;
-            g.Read(path);
+            recorder.Read(path);
 
         }
 
@@ -168,7 +168,7 @@ namespace Gesture_Recorder
             return endList;
         }
 
-        static void Test()
+        /*static void Test()
         {
             Console.WriteLine("Aggregate");
 
@@ -201,9 +201,9 @@ namespace Gesture_Recorder
 
             controller.RemoveListener(listener);
             controller.Dispose();
-        }
+        }*/
 
-        static void aggregateAll()
+        /*static void aggregateAll()
         {
             AggregateFrames("DRINK_NL", true, 30); //600
             AggregateFrames("DRINK_PT", true, 30); //600
@@ -224,15 +224,15 @@ namespace Gesture_Recorder
             AggregateFrames("THUMBS_UP", true, 3); //600
             AggregateFrames("WAVE", true, 6); //600
             AggregateFrames("WAVE_NO_THANKS", true, 6); //600
-        }
+        }*/
 
-        static void testanother()
+        /*static void testanother()
         {
             List<List<Frame>> listl = Utils.LoadListListFrame(SAMPLE_PATH + "GRABR26" + EXTENSION);
             Console.WriteLine(Utils.FramesToSequenceList(listl).GetMaxSize());
-        }
+        }*/
 
-        static void testAgain()
+        /*static void testAgain()
         {
             List<List<Frame>> endList = new List<List<Frame>>();
             List<List<Frame>> testList = new List<List<Frame>>();
@@ -260,7 +260,7 @@ namespace Gesture_Recorder
             for (int i = 0; i < 150; i++)
             {
                 testList.Add(listl[i]);
-            }
+            }*/
 
             /*endList.AddRange(Utils.LoadListListFrame(SAMPLE_PATH + "HALT_HANDR0" + EXTENSION));
             endList.AddRange(Utils.LoadListListFrame(SAMPLE_PATH + "HALT_HANDR0" + EXTENSION));*/
@@ -268,7 +268,7 @@ namespace Gesture_Recorder
             Utils.SaveListListFrame(endList, FRAMES_PATH + "HALT_HAND_half" + EXTENSION);
             endList.AddRange(testList);
             Utils.SaveListListFrame(endList, FRAMES_PATH + "HALT_HAND_half2x" + EXTENSION);*/
-        }
+        //}
 
         static List<List<Frame>> MixFrames(List<List<Frame>> list1, List<List<Frame>> list2)
         {

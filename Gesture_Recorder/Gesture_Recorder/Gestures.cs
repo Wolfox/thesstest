@@ -1,100 +1,13 @@
-﻿using System;
+﻿using Leap;
+using Sequences;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Leap;
-using System.IO;
-using Sequences;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Gesture_Recorder
+namespace GestureRecorder.Tests
 {
-
-    public class Gesture
-    {
-        public enum GestureState { Starting, Reading, Idle, Storing, Saving };
-
-        int numOfReads;
-        int numOfFramesPerRead;
-        bool isAuto;
-        List<List<Frame>> sequencesToRead;
-        public GestureState state;
-
-        private int actualNumOfReads;
-
-        public Gesture(int numReads, int numFramesRead, bool auto)
-        {
-            numOfReads = numReads;
-            numOfFramesPerRead = numFramesRead;
-            isAuto = auto;
-            sequencesToRead = new List<List<Frame>>();
-            state = GestureState.Starting;
-            actualNumOfReads = 0;
-
-        }
-
-        public void Read(string path)
-        {
-            ReadListener listener = new ReadListener();
-            listener.Initialization(numOfFramesPerRead, this);
-            Controller controller = new Controller();
-            controller.AddListener(listener);
-
-            actualNumOfReads = 0;
-            Console.WriteLine("Press enter to start reading frames to file " + path);
-            Console.ReadLine();
-            state = GestureState.Idle;
-
-            while (state != GestureState.Saving)
-            {
-                Console.WriteLine("num: " + (actualNumOfReads+1) + " in " + numOfReads);
-                if (!isAuto) {
-                    Console.ReadLine();
-                }
-                state = GestureState.Reading;
-                Console.WriteLine("Reading...");
-
-                while (state == GestureState.Reading) {
-                    if (numOfFramesPerRead == 0) {
-                        Console.ReadLine();
-                        listener.GetSequence();
-                    }
-                }
-                while (state == GestureState.Storing) { }
-            }
-
-            while (state != GestureState.Saving) { }
-
-            Utils.SaveListListFrame(sequencesToRead, path);
-
-            controller.RemoveListener(listener);
-            controller.Dispose();
-        }
-
-        public void Store(List<Frame> handSeq) {
-            actualNumOfReads++;
-            sequencesToRead.Add(handSeq);
-
-            if (actualNumOfReads >= numOfReads) {
-                state = GestureState.Saving;
-            }
-            else
-            {
-                state = GestureState.Idle;
-            }
-        }
-
-        public void Save(string path)
-        {
-            Stream writeStream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
-            IFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(writeStream, sequencesToRead);
-            writeStream.Close();
-        }
-    }
-
     class Gestures
     {
         static int typeHelp = 0;

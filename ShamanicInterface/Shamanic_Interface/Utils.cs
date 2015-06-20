@@ -10,8 +10,10 @@ using Accord.Statistics.Models.Markov;
 using Accord.Statistics.Models.Markov.Learning;
 using Accord.Statistics.Models.Markov.Topology;
 using Leap;
+using ShamanicInterface.Culture;
+using ShamanicInterface.DataStructure;
 
-namespace Shamanic_Interface
+namespace ShamanicInterface.Utils
 {
     public static class Utils
     {
@@ -166,13 +168,13 @@ namespace Shamanic_Interface
             return listListF;
         }
 
-        public static List<List<Frame>> JoinListListFrame(List<List<Frame>> listF1, List<List<Frame>> listF2)
+        /*public static List<List<Frame>> JoinListListFrame(List<List<Frame>> listF1, List<List<Frame>> listF2)
         {
             List<List<Frame>> returnVal = new List<List<Frame>>();
             returnVal.AddRange(listF1);
             returnVal.AddRange(listF2);
             return returnVal;
-        }
+        }*/
 
         public static void SaveHMM(HiddenMarkovModel<MultivariateNormalDistribution> model, string path)
         {
@@ -184,7 +186,7 @@ namespace Shamanic_Interface
             return HiddenMarkovModel<MultivariateNormalDistribution>.Load(path);
         }
 
-        public static void SaveSequenceList(SequenceList seqList, string path)
+        /*public static void SaveSequenceList(SequenceList seqList, string path)
         {
             Stream writeStream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
             seqList.Save(writeStream);
@@ -197,7 +199,7 @@ namespace Shamanic_Interface
             SequenceList seqList = SequenceList.Load(readStream);
             readStream.Close();
             return seqList;
-        }
+        }*/
 
         public static HiddenMarkovModel<MultivariateNormalDistribution> CreateModelFromFrames(List<List<Frame>> frames)
         {

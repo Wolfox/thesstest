@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Leap;
 using Sequences;
 
-namespace Gesture_Recorder
+namespace GestureRecorder.Tests
 {
     class SampleListener : Listener
     {

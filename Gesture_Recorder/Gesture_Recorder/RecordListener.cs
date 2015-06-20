@@ -5,17 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Gesture_Recorder
+namespace GestureRecorder
 {
-    class ReadListener : Listener
-    {
-        //private Gesture
+    class RecordListener : Listener {
 
         private int numOfFramesPerSeq;
         private List<Frame> sequence;
-        private Gesture parent;
+        private Recorder parent;
 
-        public void Initialization(int num, Gesture p)
+        public void Initialization(int num, Recorder p)
         {
             numOfFramesPerSeq = num;
             parent = p;
@@ -29,7 +27,7 @@ namespace Gesture_Recorder
 
         public override void OnFrame(Controller controller)
         {
-            if (parent.state != Gesture.GestureState.Reading) { return; }
+            if (parent.state != Recorder.RecorderState.Reading) { return; }
 
             Frame frame = controller.Frame();
             HandList hands = frame.Hands;
@@ -46,7 +44,7 @@ namespace Gesture_Recorder
 
         public void GetSequence()
         {
-            parent.state = Gesture.GestureState.Storing;
+            parent.state = Recorder.RecorderState.Storing;
             parent.Store(sequence);
             sequence = new List<Frame>();
         }

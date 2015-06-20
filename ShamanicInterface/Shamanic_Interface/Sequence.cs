@@ -6,9 +6,9 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
-namespace Shamanic_Interface
+namespace ShamanicInterface.DataStructure
 {
-    [Serializable]
+    //[Serializable]
     public class Sequence
     {
         public List<Sign> sequence;
@@ -52,7 +52,7 @@ namespace Shamanic_Interface
         }
     }
 
-    [Serializable]
+    //[Serializable]
     public class SequenceList
     {
         public List<Sequence> sequences;
@@ -78,7 +78,7 @@ namespace Shamanic_Interface
             return sequences.Max(element => element.sequence.Count);
         }
 
-        public void Save(Stream stream)
+        /*public void Save(Stream stream)
         {
             //Stream writeStream = new FileStream("MyFile1.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             IFormatter formatter = new BinaryFormatter();
@@ -91,18 +91,16 @@ namespace Shamanic_Interface
             IFormatter formatter = new BinaryFormatter();
             SequenceList obj = (SequenceList)formatter.Deserialize(stream);
             return obj;
-        }
+        }*/
     }
 
     public class SequenceBuffer
     {
-        //private Queue<Sign> buffer1;
         private Sequence buffer;
         private int bufferSize;
 
         public SequenceBuffer(int size = 10)
         {
-            //buffer1 = new Queue<Sign>();
             buffer = new Sequence();
             bufferSize = size;
         }
@@ -119,7 +117,6 @@ namespace Shamanic_Interface
 
         public Sequence getSequence()
         {
-            //return new Sequence(buffer1.ToList());
             return buffer.Clone();
         }
 
@@ -127,14 +124,8 @@ namespace Shamanic_Interface
         {
             if (sign != null)
             {
-                //buffer1.Enqueue(sign);
                 buffer.sequence.Add(sign);
             }
-
-            /*while (buffer1.Count > bufferSize)
-            {
-                buffer1.Dequeue();
-            }*/
 
             while (buffer.sequence.Count > bufferSize)
             {
@@ -145,7 +136,6 @@ namespace Shamanic_Interface
         public void ClearSequence()
         {
             buffer.sequence.Clear();
-            //buffer1.Clear();
         }
     }
 }

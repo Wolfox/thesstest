@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Gesture_Recorder
+namespace GestureRecorder.Tests
 {
     class TestListener : Listener
     {

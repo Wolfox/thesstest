@@ -7,8 +7,8 @@
     <ProjectGuid>{DEB8C38D-1433-4553-84BB-EB5EDEFE9632}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shamanic_Interface</RootNamespace>
-    <AssemblyName>Shamanic_Interface</AssemblyName>
+    <RootNamespace>ShamanicInterface</RootNamespace>
+    <AssemblyName>ShamanicInterface</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
