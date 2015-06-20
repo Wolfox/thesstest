@@ -3,7 +3,7 @@ using Accord.Statistics.Models.Markov;
 using Accord.Statistics.Models.Markov.Learning;
 using Accord.Statistics.Models.Markov.Topology;
 using Leap;
-using Sequences;
+using ShamanicInterface.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;

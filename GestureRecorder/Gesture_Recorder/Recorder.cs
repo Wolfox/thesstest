@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Leap;
 using System.IO;
-using Sequences;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using ShamanicInterface.Utils;
 
 namespace GestureRecorder
 {

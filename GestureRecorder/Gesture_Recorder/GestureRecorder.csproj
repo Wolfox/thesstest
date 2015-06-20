@@ -7,8 +7,8 @@
     <ProjectGuid>{D5433531-40A3-4874-B192-61C052516075}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gesture_Recorder</RootNamespace>
-    <AssemblyName>Gesture_Recorder</AssemblyName>
+    <RootNamespace>GestureRecorder</RootNamespace>
+    <AssemblyName>GestureRecorder</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -57,9 +57,8 @@
     <Reference Include="LeapCSharp.NET3.5">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Leap Motion\lib\LeapCSharp.NET3.5.dll</HintPath>
     </Reference>
-    <Reference Include="Sequences, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\HMM test\HMM_Test_Library\Sequence\bin\Debug\Sequences.dll</HintPath>
+    <Reference Include="ShamanicInterface">
+      <HintPath>..\..\ShamanicInterface\Shamanic_Interface\bin\Debug\ShamanicInterface.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
