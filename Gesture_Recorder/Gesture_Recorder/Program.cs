@@ -46,12 +46,6 @@ namespace GestureRecorder
                 case 2:
                     MainLoad();
                     break;
-                /*case 3:
-                    testanother();
-                    //aggregateAll();
-                    //testAgain();
-                    //TestNumOfFrames();
-                    break;*/
                 default:
                     Console.WriteLine("NOT DEFINED");
                     break;
@@ -167,108 +161,6 @@ namespace GestureRecorder
             
             return endList;
         }
-
-        /*static void Test()
-        {
-            Console.WriteLine("Aggregate");
-
-            string filename = ReadString("filename: ");
-
-            List<List<Frame>> frameList = Utils.LoadListListFrame(FRAMES_PATH + filename + EXTENSION);
-
-            Console.WriteLine("Num of Seq: " + frameList.Count);
-            Console.WriteLine("Num of Frames in first seq:" + frameList[0].Count);
-
-        }
-
-        static void TestNumOfFrames()
-        {
-            TestListener listener = new TestListener();
-            listener.Init();
-            Controller controller = new Controller(listener);
-
-            Console.WriteLine("Press Enter to start counting frames!");
-            Console.ReadLine();
-
-            listener.startCounting();
-
-            Console.WriteLine("Counting... Press Enter again to stop counting frames!");
-            Console.ReadLine();
-
-
-            int numOfFrames = listener.endCounting();
-            Console.WriteLine("Stopped! The number of frames read was " + numOfFrames + " frame(s).");
-
-            controller.RemoveListener(listener);
-            controller.Dispose();
-        }*/
-
-        /*static void aggregateAll()
-        {
-            AggregateFrames("DRINK_NL", true, 30); //600
-            AggregateFrames("DRINK_PT", true, 30); //600
-            AggregateFrames("GRAB", true, 30); //600
-            AggregateFrames("HALT_HAND", true, 1); //600
-            AggregateFrames("HAND_ROTATING", true, 15); //600
-            AggregateFrames("INDEX_HUSH", true, 3); //600
-            AggregateFrames("INDEX_ROTATING", true, 15); //600
-            AggregateFrames("MOUTH_MIMIC", true, 10); //600
-            AggregateFrames("NUM1", true, 3); //600
-            AggregateFrames("NUM2", true, 3); //600
-            AggregateFrames("NUM3", true, 3); //600
-            AggregateFrames("OPEN_FRONT", true, 3); //600
-            AggregateFrames("OPEN_LEFT", true, 3); //600
-            AggregateFrames("OPEN_RIGHT", true, 3); //600
-            AggregateFrames("THE_RING", true, 3); //600
-            AggregateFrames("THUMBS_DOWN", true, 3); //600
-            AggregateFrames("THUMBS_UP", true, 3); //600
-            AggregateFrames("WAVE", true, 6); //600
-            AggregateFrames("WAVE_NO_THANKS", true, 6); //600
-        }*/
-
-        /*static void testanother()
-        {
-            List<List<Frame>> listl = Utils.LoadListListFrame(SAMPLE_PATH + "GRABR26" + EXTENSION);
-            Console.WriteLine(Utils.FramesToSequenceList(listl).GetMaxSize());
-        }*/
-
-        /*static void testAgain()
-        {
-            List<List<Frame>> endList = new List<List<Frame>>();
-            List<List<Frame>> testList = new List<List<Frame>>();
-
-            List<List<Frame>> listr = Utils.LoadListListFrame(SAMPLE_PATH + "HALT_HANDR0" + EXTENSION);
-            List<List<Frame>> listl = Utils.LoadListListFrame(SAMPLE_PATH + "HALT_HANDL0" + EXTENSION);
-
-            int index = 0;
-
-            for (index = 0; index < listr.Count && index < listl.Count; index++)
-            {
-                testList.Add(listr[index]);
-                testList.Add(listl[index]);
-            }
-
-            testList.AddRange(listl.GetRange(index, listl.Count - index));
-            testList.AddRange(listr.GetRange(index, listr.Count - index));
-
-            Utils.SaveListListFrame(testList, FRAMES_PATH + "HALT_HAND_alt" + EXTENSION);
-
-            /*for (int i = 0; i < 150; i++)
-            {
-                testList.Add(listr[i]);
-            }
-            for (int i = 0; i < 150; i++)
-            {
-                testList.Add(listl[i]);
-            }*/
-
-            /*endList.AddRange(Utils.LoadListListFrame(SAMPLE_PATH + "HALT_HANDR0" + EXTENSION));
-            endList.AddRange(Utils.LoadListListFrame(SAMPLE_PATH + "HALT_HANDR0" + EXTENSION));*/
-            /*endList.AddRange(testList);
-            Utils.SaveListListFrame(endList, FRAMES_PATH + "HALT_HAND_half" + EXTENSION);
-            endList.AddRange(testList);
-            Utils.SaveListListFrame(endList, FRAMES_PATH + "HALT_HAND_half2x" + EXTENSION);*/
-        //}
 
         static List<List<Frame>> MixFrames(List<List<Frame>> list1, List<List<Frame>> list2)
         {
