@@ -13,41 +13,34 @@ namespace ShamanicInterface.DataStructure
     {
         public List<Sign> sequence;
 
-        public Sequence()
-        {
+        public Sequence() {
             sequence = new List<Sign>();
         }
 
-        public Sequence(List<Sign> seq)
-        {
+        public Sequence(List<Sign> seq) {
             sequence = seq;
         }
 
-        public Sequence Clone()
-        {
+        public Sequence Clone() {
             return new Sequence(sequence.ConvertAll<Sign>(i => i));
         }
 
-        public int GetDimensions()
-        {
+        public int GetDimensions() {
             if (sequence.Count < 1) { return 0; }
             return sequence[0].GetDimensions();
         }
 
-        public bool CheckDimensions()
-        {
+        public bool CheckDimensions() {
             int dim = GetDimensions();
 
-            for (int i = 1; i < sequence.Count; i++)
-            {
+            for (int i = 1; i < sequence.Count; i++) {
                 if (sequence[i].GetDimensions() != dim) { return false; }
             }
 
             return true;
         }
 
-        public double[][] GetArray()
-        {
+        public double[][] GetArray() {
             return sequence.Select<Sign, double[]>(i => i.GetValues()).ToArray();
         }
     }
@@ -57,36 +50,30 @@ namespace ShamanicInterface.DataStructure
     {
         public List<Sequence> sequences;
 
-        public SequenceList()
-        {
+        public SequenceList() {
             sequences = new List<Sequence>();
         }
 
-        public double[][][] GetArray()
-        {
+        public double[][][] GetArray() {
             return sequences.Select<Sequence, double[][]>(i => i.GetArray()).ToArray();
         }
 
-        public int GetDimensions()
-        {
+        public int GetDimensions() {
             if (sequences.Count < 1) { return 0; }
             return sequences[0].GetDimensions();
         }
 
-        public int GetMaxSize()
-        {
+        public int GetMaxSize() {
             return sequences.Max(element => element.sequence.Count);
         }
 
-        /*public void Save(Stream stream)
-        {
+        /*public void Save(Stream stream) {
             //Stream writeStream = new FileStream("MyFile1.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             IFormatter formatter = new BinaryFormatter();
             formatter.Serialize(stream, this);
         }
 
-        public static SequenceList Load(Stream stream)
-        {
+        public static SequenceList Load(Stream stream) {
             //Stream readStream = new FileStream("MyFile1.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             IFormatter formatter = new BinaryFormatter();
             SequenceList obj = (SequenceList)formatter.Deserialize(stream);
@@ -99,42 +86,34 @@ namespace ShamanicInterface.DataStructure
         private Sequence buffer;
         private int bufferSize;
 
-        public SequenceBuffer(int size = 10)
-        {
+        public SequenceBuffer(int size = 10) {
             buffer = new Sequence();
             bufferSize = size;
         }
 
-        public void setSequenceSize(int size)
-        {
+        public void setSequenceSize(int size) {
             bufferSize = size;
         }
 
-        public int getSequenceSize()
-        {
+        public int getSequenceSize() {
             return bufferSize;
         }
 
-        public Sequence getSequence()
-        {
+        public Sequence getSequence() {
             return buffer.Clone();
         }
 
-        public void AddSign(Sign sign)
-        {
-            if (sign != null)
-            {
+        public void AddSign(Sign sign) {
+            if (sign != null) {
                 buffer.sequence.Add(sign);
             }
 
-            while (buffer.sequence.Count > bufferSize)
-            {
+            while (buffer.sequence.Count > bufferSize) {
                 buffer.sequence.RemoveAt(0);
             }
         }
 
-        public void ClearSequence()
-        {
+        public void ClearSequence() {
             buffer.sequence.Clear();
         }
     }

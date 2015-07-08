@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D5433531-40A3-4874-B192-61C052516075}</ProjectGuid>
+    <ProjectGuid>{2045DD2B-654A-48CF-9555-13B54BF6F20C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GestureRecorder</RootNamespace>
@@ -58,7 +58,7 @@
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Leap Motion\lib\LeapCSharp.NET3.5.dll</HintPath>
     </Reference>
     <Reference Include="ShamanicInterface">
-      <HintPath>..\..\ShamanicInterface\Shamanic_Interface\bin\Debug\ShamanicInterface.dll</HintPath>
+      <HintPath>..\..\ShamanicInterface\ShamanicInterface\bin\Debug\ShamanicInterface.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,10 +68,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RecordListener.cs" />
-    <Compile Include="Recorder.cs" />
+    <Compile Include="GestureRecorder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recorder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -10,28 +10,23 @@ namespace ShamanicInterface.DataStructure
     {
         private double[] values;
 
-        public Sign(int dim = 0)
-        {
+        public Sign(int dim = 0) {
             values = new double[dim];
         }
 
-        public Sign(double[] vals)
-        {
+        public Sign(double[] vals) {
             values = vals;
         }
 
-        public void SetValues(double[] vals)
-        {
+        public void SetValues(double[] vals) {
             values = vals;
         }
 
-        public double[] GetValues()
-        {
+        public double[] GetValues() {
             return values;
         }
 
-        public int GetDimensions()
-        {
+        public int GetDimensions() {
             return values.Length;
         }
     }

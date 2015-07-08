@@ -6,7 +6,8 @@ using System.Text;
 
 namespace GestureRecorder
 {
-    class RecordListener : Listener {
+    class RecordListener : Listener
+    {
 
         private int numOfFramesPerSeq;
         private List<Frame> sequence;
@@ -32,7 +33,7 @@ namespace GestureRecorder
             HandList hands = frame.Hands;
             Hand hand = hands.Rightmost;
             if (!hand.IsValid) { return; }
-            if (hands.Count > 1) { Console.WriteLine("MORE THAN 1 HAND"); return; }
+            //if (hands.Count > 1) { Console.WriteLine("MORE THAN 1 HAND"); return; }
 
             sequence.Add(frame);
             if (sequence.Count >= numOfFramesPerSeq && numOfFramesPerSeq != 0)

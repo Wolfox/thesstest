@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Gesture_Recorder")]
+[assembly: AssemblyTitle("ShamanicInterface")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Gesture_Recorder")]
+[assembly: AssemblyProduct("ShamanicInterface")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c0008d76-79b3-4a17-9688-e7625fb219df")]
+[assembly: Guid("8166cf9d-86c8-4c53-8574-07d8d3e42a2b")]
 
 // Version information for an assembly consists of the following four values:
 //

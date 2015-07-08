@@ -49,8 +49,9 @@ namespace GestureRecorder
 
             while (state != RecorderState.Saving)
             {
-                Console.WriteLine("num: " + (actualNumOfReads+1) + " in " + numOfReads);
-                if (!isAuto) {
+                Console.WriteLine("num: " + (actualNumOfReads + 1) + " in " + numOfReads);
+                if (!isAuto)
+                {
                     Console.ReadLine();
                 }
                 state = RecorderState.Reading;
@@ -58,7 +59,8 @@ namespace GestureRecorder
 
                 while (state == RecorderState.Reading)
                 {
-                    if (numOfFramesPerRead == 0) {
+                    if (numOfFramesPerRead == 0)
+                    {
                         Console.ReadLine();
                         listener.GetSequence();
                     }
@@ -74,11 +76,13 @@ namespace GestureRecorder
             controller.Dispose();
         }
 
-        public void Store(List<Frame> handSeq) {
+        public void Store(List<Frame> handSeq)
+        {
             actualNumOfReads++;
             sequencesToRead.Add(handSeq);
 
-            if (actualNumOfReads >= numOfReads) {
+            if (actualNumOfReads >= numOfReads)
+            {
                 state = RecorderState.Saving;
             }
             else

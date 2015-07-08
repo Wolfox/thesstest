@@ -57,32 +57,38 @@ namespace GestureRecorder
         {
             Console.WriteLine("Read!");
             string gestureName = ReadString("Gesture Name: ");
-            bool bothHands = ReadYN("Read both hands? (y/n) ");
-            int numOfSepFiles = ReadInt("Number of separated files (per hand): ");
-            bool autoRead = ReadYN("AutoRead? (y/n) ");
-            int numOfRead = ReadInt("Number of reads per file: ");
-            int numOfFrames = ReadInt("Number of frames per read: ");
+            bool bothHands = ReadYN("Read both hands separately? (y/n) ");
+            int numOfSepFiles = ReadInt("Number of separated files (per hand, if the case): ");
+            bool autoRead = ReadYN("Start read automatically? (y/n) ");
+            int numOfRead = ReadInt("Number of gestures per file: ");
+            int numOfFrames = ReadInt("Number of frames per gesture (0 to stop manually): ");
 
-            if (bothHands) {
+            if (bothHands)
+            {
                 ReadN(gestureName + "R", numOfRead, numOfFrames, autoRead, numOfSepFiles);
                 ReadN(gestureName + "L", numOfRead, numOfFrames, autoRead, numOfSepFiles);
             }
-            else {
+            else
+            {
                 ReadN(gestureName, numOfRead, numOfFrames, autoRead, numOfSepFiles);
             }
 
             //AggregateFrames(gestureName, bothHands, numOfSepFiles);
         }
 
-        static bool ReadYN(string text) {
-            while (true) {
+        static bool ReadYN(string text)
+        {
+            while (true)
+            {
                 Console.Write(text);
                 string read = Console.ReadLine();
-                if (read == "y") {
+                if (read == "y")
+                {
                     return true;
                 }
 
-                if (read == "n") {
+                if (read == "n")
+                {
                     return false;
                 }
             }
@@ -100,14 +106,16 @@ namespace GestureRecorder
             return Convert.ToInt32(Console.ReadLine());
         }
 
-        static void ReadN(string filename, int nRead, int nFrame, bool auto, int N) {
+        static void ReadN(string filename, int nRead, int nFrame, bool auto, int N)
+        {
             for (int i = 0; i < N; i++)
             {
                 Read(filename + i, nRead, nFrame, auto);
             }
         }
 
-        static void Read(string filename, int nRead, int nFrame, bool auto) {
+        static void Read(string filename, int nRead, int nFrame, bool auto)
+        {
             Recorder recorder = new Recorder(nRead, nFrame, auto);
             string path = SAMPLE_PATH + filename + EXTENSION;
             recorder.Read(path);
@@ -125,7 +133,8 @@ namespace GestureRecorder
             AggregateFrames(filename, bothHands, numOfFiles);
         }
 
-        static void AggregateFrames(string filename, bool bothHands, int numOfFiles) {
+        static void AggregateFrames(string filename, bool bothHands, int numOfFiles)
+        {
 
             List<List<Frame>> endList = new List<List<Frame>>();
 
@@ -158,7 +167,7 @@ namespace GestureRecorder
             {
                 endList.AddRange(Utils.LoadListListFrame(SAMPLE_PATH + filename + i + EXTENSION));
             }
-            
+
             return endList;
         }
 

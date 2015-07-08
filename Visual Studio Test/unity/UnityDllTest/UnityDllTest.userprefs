@@ -1,6 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\GameScript.cs">
+    <Files>
+      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\LeapMotion\HandController.cs" Line="25" Column="2" />
+      <File FileName="..\..\..\..\..\MasterThesis\LeapMotion-Unity\Shamanic Unity Game\Assets\Scripts\GameScript.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

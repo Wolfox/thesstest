@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DEB8C38D-1433-4553-84BB-EB5EDEFE9632}</ProjectGuid>
+    <ProjectGuid>{06C702BF-573D-4D74-A303-8F4D37EA8D43}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ShamanicInterface</RootNamespace>

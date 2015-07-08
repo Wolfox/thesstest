@@ -12,13 +12,13 @@ using Accord.Statistics.Models.Markov.Topology;
 using Leap;
 using ShamanicInterface.Culture;
 using ShamanicInterface.DataStructure;
+using Accord.Statistics.Distributions.Fitting;
 
 namespace ShamanicInterface.Utils
 {
     public static class Utils
     {
-        public static Sign FrameToSign(Frame frame, Frame prevFrame)
-        {
+        public static Sign FrameToSign(Frame frame, Frame prevFrame) {
             HandList hands = frame.Hands;
             Hand hand = hands.Rightmost;
 
@@ -27,8 +27,7 @@ namespace ShamanicInterface.Utils
             return HandToSign(hand, prevFrame);
         }
 
-        public static Sign HandToSign(Hand hand, Frame prevFrame)
-        {
+        public static Sign HandToSign(Hand hand, Frame prevFrame) {
             if (!hand.IsValid) { return null; }
 
             FingerList fingers = hand.Fingers;
@@ -44,8 +43,7 @@ namespace ShamanicInterface.Utils
             }
             values.AddRange(Array.ConvertAll(handMov.ToFloatArray(), x => System.Convert.ToDouble(x)));*/
 
-            for (int i = 0; i < fingers.Count; i++)
-            {
+            for (int i = 0; i < fingers.Count; i++) {
                 Finger finger = fingers[i];
                 double[] fingerDirs = Array.ConvertAll(finger.Direction.ToFloatArray(), x => System.Convert.ToDouble(x));
                 values.AddRange(fingerDirs);
@@ -54,8 +52,7 @@ namespace ShamanicInterface.Utils
             return new Sign(values.ToArray());
         }
 
-        public static Sequence FramesToSequence(List<Frame> frames)
-        {
+        public static Sequence FramesToSequence(List<Frame> frames) {
             List<Sign> signs = new List<Sign>();
             signs.Add(FrameToSign(frames[0], null));
             for (int i = 1; i < frames.Count; i++)
@@ -65,8 +62,7 @@ namespace ShamanicInterface.Utils
             return new Sequence(signs);
         }
 
-        public static SequenceList FramesToSequenceList(List<List<Frame>> frames)
-        {
+        public static SequenceList FramesToSequenceList(List<List<Frame>> frames) {
             SequenceList seqList = new SequenceList();
             for (int i = 0; i < frames.Count; i++)
             {
@@ -75,14 +71,12 @@ namespace ShamanicInterface.Utils
             return seqList;
         }
 
-        public static void SaveFrame(Frame f, string path)
-        {
+        public static void SaveFrame(Frame f, string path) {
             byte[] serializedFrame = f.Serialize;
             System.IO.File.WriteAllBytes(path, serializedFrame);
         }
 
-        public static Frame LoadFrame(string path)
-        {
+        public static Frame LoadFrame(string path) {
             byte[] frameData = System.IO.File.ReadAllBytes(path);
             Controller control = new Controller();
             Frame f = new Frame();
@@ -91,8 +85,7 @@ namespace ShamanicInterface.Utils
             return f;
         }
 
-        public static void SaveListFrame(List<Frame> listF, string path)
-        {
+        public static void SaveListFrame(List<Frame> listF, string path) {
             List<byte[]> listB = new List<byte[]>();
             for (int i = 0; i < listF.Count; i++)
             {
@@ -105,8 +98,7 @@ namespace ShamanicInterface.Utils
             writeStream.Close();
         }
 
-        public static List<Frame> LoadListFrame(string path)
-        {
+        public static List<Frame> LoadListFrame(string path) {
             List<Frame> listF = new List<Frame>();
             Stream readStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
             IFormatter formatter = new BinaryFormatter();
@@ -125,8 +117,7 @@ namespace ShamanicInterface.Utils
             return listF;
         }
 
-        public static void SaveListListFrame(List<List<Frame>> listlistF, string path)
-        {
+        public static void SaveListListFrame(List<List<Frame>> listlistF, string path) {
             List<List<byte[]>> listlistB = new List<List<byte[]>>();
             for (int i = 0; i < listlistF.Count; i++)
             {
@@ -143,8 +134,7 @@ namespace ShamanicInterface.Utils
             writeStream.Close();
         }
 
-        public static List<List<Frame>> LoadListListFrame(string path)
-        {
+        public static List<List<Frame>> LoadListListFrame(string path) {
             List<List<Frame>> listListF = new List<List<Frame>>();
             Stream readStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
             IFormatter formatter = new BinaryFormatter();
@@ -176,13 +166,11 @@ namespace ShamanicInterface.Utils
             return returnVal;
         }*/
 
-        public static void SaveHMM(HiddenMarkovModel<MultivariateNormalDistribution> model, string path)
-        {
+        public static void SaveHMM(HiddenMarkovModel<MultivariateNormalDistribution> model, string path) {
             model.Save(path);
         }
 
-        public static HiddenMarkovModel<MultivariateNormalDistribution> LoadHMM(string path)
-        {
+        public static HiddenMarkovModel<MultivariateNormalDistribution> LoadHMM(string path) {
             return HiddenMarkovModel<MultivariateNormalDistribution>.Load(path);
         }
 
@@ -201,18 +189,23 @@ namespace ShamanicInterface.Utils
             return seqList;
         }*/
 
-        public static HiddenMarkovModel<MultivariateNormalDistribution> CreateModelFromFrames(List<List<Frame>> frames)
-        {
-            SequenceList seq = Utils.FramesToSequenceList(frames);
+        public static HiddenMarkovModel<MultivariateNormalDistribution> CreateModelFromFrames(List<List<Frame>> frames) {
+            SequenceList sequences = Utils.FramesToSequenceList(frames);
 
             HiddenMarkovModel<MultivariateNormalDistribution> hmm;
-            MultivariateNormalDistribution mnd = new MultivariateNormalDistribution(seq.GetArray()[0][0].Length);
+            MultivariateNormalDistribution mnd = new MultivariateNormalDistribution(sequences.GetDimensions());
             hmm = new HiddenMarkovModel<MultivariateNormalDistribution>(new Forward(5), mnd);
 
             var teacher = new BaumWelchLearning<MultivariateNormalDistribution>(hmm);
-            teacher.Tolerance = 0.001;
+            teacher.Tolerance = 0.0001;
             teacher.Iterations = 0;
-            teacher.Run(seq.GetArray());
+            teacher.FittingOptions = new NormalOptions()
+            {
+                Diagonal = true,      // only diagonal covariance matrices
+                Regularization = 1e-5 // avoid non-positive definite errors
+            };
+
+            teacher.Run(sequences.GetArray());
 
             return hmm;
         }
@@ -220,15 +213,13 @@ namespace ShamanicInterface.Utils
 
         public static List<HiddenMarkovModel<MultivariateNormalDistribution>> GetModelsWithCulture(
             Dictionary<string, HiddenMarkovModel<MultivariateNormalDistribution>> allModels,
-            List<string> actions, CulturalLayer cultureLayer, string culture = "")
-        {
+            List<string> actions, CulturalLayer cultureLayer, string culture = "") {
             return GetModels(cultureLayer.GetGesturesNames(actions, culture), allModels);
         }
 
         private static List<HiddenMarkovModel<MultivariateNormalDistribution>> GetModels(
             List<string> gestureNames,
-            Dictionary<string, HiddenMarkovModel<MultivariateNormalDistribution>> allModels)
-        {
+            Dictionary<string, HiddenMarkovModel<MultivariateNormalDistribution>> allModels) {
             return gestureNames.ConvertAll(gestureName => allModels[gestureName]);
         }
     }
